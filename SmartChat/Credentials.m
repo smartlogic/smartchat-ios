@@ -1,13 +1,16 @@
-//
-//  Credentials.m
-//  SmartChat
-//
-//  Created by Tom von Schwerdtner on 1/22/14.
-//  Copyright (c) 2014 SmartLogic. All rights reserved.
-//
-
 #import "Credentials.h"
 
 @implementation Credentials
+
+- (id)initWithUsername:(NSString *)username password:(NSString *)password
+{
+    self = [self init];
+    if(self){
+        self.username = username;
+        self.password = password;
+    }
+    
+    return self;
+}
 
 @end
