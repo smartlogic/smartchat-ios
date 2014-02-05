@@ -16,7 +16,7 @@
 {
     self = [super init];
     if(self){
-        self.baseURL = [NSURL URLWithString:@"http://smartchat.dev:9000"];
+        self.baseURL = [NSURL URLWithString:@"http://roberto.local:9000"];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.requestSerializer = [AFJSONRequestSerializer serializerWithWritingOptions:(NSJSONWritingPrettyPrinted)];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
