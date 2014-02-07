@@ -23,10 +23,13 @@
 		0F4A7996188DEA6C00237F24 /* HTTPClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */; };
 		0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */; };
 		0F81B24518A491FD00CD4FEC /* NSStringSHA256DigestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */; };
+		0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */; };
+		0F81B24A18A553E200CD4FEC /* NSStringKeySigningSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */; };
 		0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4A818A1E4C60024A427 /* CameraViewController.m */; };
 		0F97D4AD18A1E81F0024A427 /* ImagePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4AC18A1E81F0024A427 /* ImagePickerDelegate.m */; };
 		0FC3B21E18896110006FF4FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3B21D18896110006FF4FB /* LoginViewController.m */; };
 		0FC4319118909247002833A6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4319018909247002833A6 /* Credentials.m */; };
+		0FD7005418A4239100A0A821 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7005318A4239100A0A821 /* Security.framework */; };
 		C015A52866AD45D4AF7E28BB /* libPods-SmartChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 856612DFFD5D4FAEA7682AC4 /* libPods-SmartChatTests.a */; };
 		D9ED6A6E80C14B76814440BC /* libPods-SmartChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5EEE63FF2D488C8520D73C /* libPods-SmartChat.a */; };
 /* End PBXBuildFile section */
@@ -65,6 +68,9 @@
 		0F81B24118A4919D00CD4FEC /* NSString+SHA256Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256Digest.h"; sourceTree = "<group>"; };
 		0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA256Digest.m"; sourceTree = "<group>"; };
 		0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringSHA256DigestSpec.m; sourceTree = "<group>"; };
+		0F81B24618A551AB00CD4FEC /* NSString+KeySigning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KeySigning.h"; sourceTree = "<group>"; };
+		0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KeySigning.m"; sourceTree = "<group>"; };
+		0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringKeySigningSpec.m; sourceTree = "<group>"; };
 		0F97D4A718A1E4C60024A427 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		0F97D4A818A1E4C60024A427 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		0F97D4AB18A1E81F0024A427 /* ImagePickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerDelegate.h; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 		0FC3B21D18896110006FF4FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0FC4318F18909247002833A6 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		0FC4319018909247002833A6 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
+		0FD7005318A4239100A0A821 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		824430812FC84F6AAF455F64 /* Pods-SmartChat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartChat.xcconfig"; path = "Pods/Pods-SmartChat.xcconfig"; sourceTree = "<group>"; };
 		856612DFFD5D4FAEA7682AC4 /* libPods-SmartChatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartChatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5EEE63FF2D488C8520D73C /* libPods-SmartChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD7005418A4239100A0A821 /* Security.framework in Frameworks */,
 				0F476D02187B837F00338F61 /* CoreGraphics.framework in Frameworks */,
 				0F476D04187B837F00338F61 /* UIKit.framework in Frameworks */,
 				0F476D00187B837F00338F61 /* Foundation.framework in Frameworks */,
@@ -129,6 +137,7 @@
 		0F476CFE187B837F00338F61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FD7005318A4239100A0A821 /* Security.framework */,
 				0F476CFF187B837F00338F61 /* Foundation.framework */,
 				0F476D01187B837F00338F61 /* CoreGraphics.framework */,
 				0F476D03187B837F00338F61 /* UIKit.framework */,
@@ -142,6 +151,7 @@
 		0F476D05187B837F00338F61 /* SmartChat */ = {
 			isa = PBXGroup;
 			children = (
+				0F81B24018A4916D00CD4FEC /* Categories */,
 				0F97D4AA18A1E7EE0024A427 /* Delegates */,
 				0F476D0E187B837F00338F61 /* AppDelegate.h */,
 				0F476D0F187B837F00338F61 /* AppDelegate.m */,
@@ -178,6 +188,7 @@
 				0F476D1F187B837F00338F61 /* Supporting Files */,
 				0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */,
 				0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */,
+				0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */,
 			);
 			path = SmartChatTests;
 			sourceTree = "<group>";
@@ -196,6 +207,8 @@
 			children = (
 				0F81B24118A4919D00CD4FEC /* NSString+SHA256Digest.h */,
 				0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */,
+				0F81B24618A551AB00CD4FEC /* NSString+KeySigning.h */,
+				0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -372,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC3B21E18896110006FF4FB /* LoginViewController.m in Sources */,
+				0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */,
 				0F476D10187B837F00338F61 /* AppDelegate.m in Sources */,
 				0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */,
 				0F4A7991188CF16600237F24 /* HTTPClient.m in Sources */,
@@ -389,6 +403,7 @@
 			files = (
 				0F81B24518A491FD00CD4FEC /* NSStringSHA256DigestSpec.m in Sources */,
 				0F4A7996188DEA6C00237F24 /* HTTPClientSpec.m in Sources */,
+				0F81B24A18A553E200CD4FEC /* NSStringKeySigningSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
