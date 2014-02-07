@@ -5,7 +5,6 @@ target 'SmartChat' do
   pod 'OpenSSL', '~> 1.0.1'
   pod 'HyperBek', :hg => 'https://bitbucket.org/dcutting/hyperbek'
   pod 'CommonCrypto', '~> 1.1'
-  pod 'Base64'
 end
 
 target 'SmartChatTests' do
