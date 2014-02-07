@@ -21,6 +21,8 @@
 		0F4A798E188B32CB00237F24 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A798D188B32CB00237F24 /* LoginView.m */; };
 		0F4A7991188CF16600237F24 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A7990188CF16600237F24 /* HTTPClient.m */; };
 		0F4A7996188DEA6C00237F24 /* HTTPClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */; };
+		0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */; };
+		0F81B24518A491FD00CD4FEC /* NSStringSHA256DigestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */; };
 		0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4A818A1E4C60024A427 /* CameraViewController.m */; };
 		0F97D4AD18A1E81F0024A427 /* ImagePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4AC18A1E81F0024A427 /* ImagePickerDelegate.m */; };
 		0FC3B21E18896110006FF4FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3B21D18896110006FF4FB /* LoginViewController.m */; };
@@ -60,6 +62,9 @@
 		0F4A798F188CF16500237F24 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
 		0F4A7990188CF16600237F24 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClientSpec.m; sourceTree = "<group>"; };
+		0F81B24118A4919D00CD4FEC /* NSString+SHA256Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256Digest.h"; sourceTree = "<group>"; };
+		0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA256Digest.m"; sourceTree = "<group>"; };
+		0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringSHA256DigestSpec.m; sourceTree = "<group>"; };
 		0F97D4A718A1E4C60024A427 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		0F97D4A818A1E4C60024A427 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		0F97D4AB18A1E81F0024A427 /* ImagePickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerDelegate.h; sourceTree = "<group>"; };
@@ -172,6 +177,7 @@
 			children = (
 				0F476D1F187B837F00338F61 /* Supporting Files */,
 				0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */,
+				0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */,
 			);
 			path = SmartChatTests;
 			sourceTree = "<group>";
@@ -183,6 +189,15 @@
 				0F476D21187B837F00338F61 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0F81B24018A4916D00CD4FEC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0F81B24118A4919D00CD4FEC /* NSString+SHA256Digest.h */,
+				0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		0F97D4AA18A1E7EE0024A427 /* Delegates */ = {
@@ -358,6 +373,7 @@
 			files = (
 				0FC3B21E18896110006FF4FB /* LoginViewController.m in Sources */,
 				0F476D10187B837F00338F61 /* AppDelegate.m in Sources */,
+				0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */,
 				0F4A7991188CF16600237F24 /* HTTPClient.m in Sources */,
 				0F476D0C187B837F00338F61 /* main.m in Sources */,
 				0F97D4AD18A1E81F0024A427 /* ImagePickerDelegate.m in Sources */,
@@ -371,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F81B24518A491FD00CD4FEC /* NSStringSHA256DigestSpec.m in Sources */,
 				0F4A7996188DEA6C00237F24 /* HTTPClientSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
