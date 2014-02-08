@@ -90,18 +90,18 @@
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
     Credentials *credentials = [[Credentials alloc] initWithUsername:username password:password];
-    
+
     HTTPClient *client = [[HTTPClient alloc] initWithCredentials:credentials];
     [client authenticate:[self.rootResource linkForRelation:@"http://smartchat.smartlogic.io/relations/user-sign-in"]
                  success:^(YBHALResource *resource) {
                      [client getRootResource:^(YBHALResource *resource) {
                          CameraViewController *cameraViewController = [[CameraViewController alloc] initWithHTTPClient:client
                                                                                                               resource:resource];
-                         [self.navigationController presentViewController:cameraViewController animated:YES completion:nil];
+                         [self.navigationController pushViewController:cameraViewController animated:YES];
                      } failure:^(AFHTTPRequestOperation *task, NSError *error) {
                          NSLog(@"error: %@", error);
                      }];
-                     }
+                 }
                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                      NSLog(@"error: %@", error);
                  }];
