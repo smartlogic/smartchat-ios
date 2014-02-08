@@ -26,7 +26,7 @@
 		0F81B24518A491FD00CD4FEC /* NSStringSHA256DigestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */; };
 		0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */; };
 		0F81B24A18A553E200CD4FEC /* NSStringKeySigningSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */; };
-		0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4A818A1E4C60024A427 /* CameraViewController.m */; };
+		0F97D4A918A1E4C60024A427 /* CaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4A818A1E4C60024A427 /* CaptureViewController.m */; };
 		0FC3B21E18896110006FF4FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3B21D18896110006FF4FB /* LoginViewController.m */; };
 		0FC4319118909247002833A6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4319018909247002833A6 /* Credentials.m */; };
 		0FD7005418A4239100A0A821 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7005318A4239100A0A821 /* Security.framework */; };
@@ -72,8 +72,8 @@
 		0F81B24618A551AB00CD4FEC /* NSString+KeySigning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KeySigning.h"; sourceTree = "<group>"; };
 		0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KeySigning.m"; sourceTree = "<group>"; };
 		0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringKeySigningSpec.m; sourceTree = "<group>"; };
-		0F97D4A718A1E4C60024A427 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		0F97D4A818A1E4C60024A427 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		0F97D4A718A1E4C60024A427 /* CaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureViewController.h; sourceTree = "<group>"; };
+		0F97D4A818A1E4C60024A427 /* CaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureViewController.m; sourceTree = "<group>"; };
 		0FC3B21C18896110006FF4FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		0FC3B21D18896110006FF4FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0FC4318F18909247002833A6 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
@@ -223,8 +223,8 @@
 		0F81B24D18A5BB6600CD4FEC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0F97D4A718A1E4C60024A427 /* CameraViewController.h */,
-				0F97D4A818A1E4C60024A427 /* CameraViewController.m */,
+				0F97D4A718A1E4C60024A427 /* CaptureViewController.h */,
+				0F97D4A818A1E4C60024A427 /* CaptureViewController.m */,
 				0FC3B21C18896110006FF4FB /* LoginViewController.h */,
 				0FC3B21D18896110006FF4FB /* LoginViewController.m */,
 			);
@@ -414,7 +414,7 @@
 				0F4A7991188CF16600237F24 /* HTTPClient.m in Sources */,
 				0F476D0C187B837F00338F61 /* main.m in Sources */,
 				0F4A798E188B32CB00237F24 /* LoginView.m in Sources */,
-				0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */,
+				0F97D4A918A1E4C60024A427 /* CaptureViewController.m in Sources */,
 				0FC4319118909247002833A6 /* Credentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

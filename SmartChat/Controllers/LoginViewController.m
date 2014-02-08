@@ -6,7 +6,7 @@
 #import "Credentials.h"
 #import "HTTPClient.h"
 
-#import "CameraViewController.h"
+#import "CaptureViewController.h"
 
 @interface LoginViewController ()
 @property (nonatomic, strong) UITextField *usernameField;
@@ -95,7 +95,7 @@
     [client authenticate:[self.rootResource linkForRelation:@"http://smartchat.smartlogic.io/relations/user-sign-in"]
                  success:^(YBHALResource *resource) {
                      [client getRootResource:^(YBHALResource *resource) {
-                         CameraViewController *cameraViewController = [[CameraViewController alloc] initWithHTTPClient:client
+                         CaptureViewController *cameraViewController = [[CaptureViewController alloc] initWithHTTPClient:client
                                                                                                               resource:resource];
                          [self.navigationController pushViewController:cameraViewController animated:YES];
                      } failure:^(AFHTTPRequestOperation *task, NSError *error) {

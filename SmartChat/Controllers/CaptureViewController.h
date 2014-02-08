@@ -3,7 +3,7 @@
 @class HTTPClient;
 @class YBHALResource;
 
-@interface CameraViewController : UIImagePickerController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CaptureViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 - (id)initWithHTTPClient:(HTTPClient *)client resource:(YBHALResource *)resource;
 
