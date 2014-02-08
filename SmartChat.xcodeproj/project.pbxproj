@@ -152,22 +152,19 @@
 		0F476D05187B837F00338F61 /* SmartChat */ = {
 			isa = PBXGroup;
 			children = (
-				0F81B24018A4916D00CD4FEC /* Categories */,
-				0F97D4AA18A1E7EE0024A427 /* Delegates */,
 				0F476D0E187B837F00338F61 /* AppDelegate.h */,
 				0F476D0F187B837F00338F61 /* AppDelegate.m */,
+				0F81B24018A4916D00CD4FEC /* Categories */,
+				0F5695EC18A6C6FD0061715A /* Models */,
+				0F81B24E18A5DE7F00CD4FEC /* Views */,
+				0F81B24D18A5BB6600CD4FEC /* Controllers */,
+				0F97D4AA18A1E7EE0024A427 /* Delegates */,
 				0F476D11187B837F00338F61 /* Images.xcassets */,
 				0F476D06187B837F00338F61 /* Supporting Files */,
-				0FC3B21C18896110006FF4FB /* LoginViewController.h */,
-				0FC3B21D18896110006FF4FB /* LoginViewController.m */,
-				0FC4318F18909247002833A6 /* Credentials.h */,
-				0FC4319018909247002833A6 /* Credentials.m */,
 				0F4A798C188B32CB00237F24 /* LoginView.h */,
 				0F4A798D188B32CB00237F24 /* LoginView.m */,
 				0F4A798F188CF16500237F24 /* HTTPClient.h */,
 				0F4A7990188CF16600237F24 /* HTTPClient.m */,
-				0F97D4A718A1E4C60024A427 /* CameraViewController.h */,
-				0F97D4A818A1E4C60024A427 /* CameraViewController.m */,
 			);
 			path = SmartChat;
 			sourceTree = "<group>";
@@ -203,15 +200,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0F5695EC18A6C6FD0061715A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FC4318F18909247002833A6 /* Credentials.h */,
+				0FC4319018909247002833A6 /* Credentials.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0F81B24018A4916D00CD4FEC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				0F81B24118A4919D00CD4FEC /* NSString+SHA256Digest.h */,
-				0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */,
 				0F81B24618A551AB00CD4FEC /* NSString+KeySigning.h */,
 				0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */,
+				0F81B24118A4919D00CD4FEC /* NSString+SHA256Digest.h */,
+				0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		0F81B24D18A5BB6600CD4FEC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0F97D4A718A1E4C60024A427 /* CameraViewController.h */,
+				0F97D4A818A1E4C60024A427 /* CameraViewController.m */,
+				0FC3B21C18896110006FF4FB /* LoginViewController.h */,
+				0FC3B21D18896110006FF4FB /* LoginViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0F81B24E18A5DE7F00CD4FEC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0F97D4AA18A1E7EE0024A427 /* Delegates */ = {
