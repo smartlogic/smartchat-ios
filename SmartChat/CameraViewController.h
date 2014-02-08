@@ -1,8 +1,10 @@
 #import <UIKit/UIKit.h>
 
-@class HTTPClient; 
-@interface CameraViewController : UIImagePickerController
+@class HTTPClient;
+@class YBHALResource;
 
-- (id)initWithHTTPClient:(HTTPClient *)client;
+@interface CameraViewController : UIImagePickerController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+- (id)initWithHTTPClient:(HTTPClient *)client resource:(YBHALResource *)resource;
 
 @end
