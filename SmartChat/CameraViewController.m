@@ -18,7 +18,17 @@
         self.imagePickerDelegate = [[ImagePickerDelegate alloc] init];
         self.delegate = self.imagePickerDelegate;
         self.allowsEditing = YES;
-        self.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+        AVCaptureDevice* device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        NSError *error = nil;
+        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+
+        if(!input) {
+            NSLog(@"No camera available, using photo library");
+            self.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        } else {
+            self.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }
     }
     return self;
 }
