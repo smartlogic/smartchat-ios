@@ -12,28 +12,36 @@
 @property (nonatomic, strong) UITextField *usernameField;
 @property (nonatomic, strong) UITextField *passwordField;
 @property (nonatomic, strong) YBHALResource *rootResource;
+@property (nonatomic, strong) HTTPClient *client;
 @end
 
 @implementation LoginViewController
 
+- (id)initWithClient:(HTTPClient *)client
+{
+    self = [self init];
+    if(self){
+        self.client = client;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self configureView];
-    HTTPClient *client = [[HTTPClient alloc] init];
-    [client getRootResource:^(YBHALResource *resource) {
-        NSLog(@"rootResource: %@", resource);
+
+    [self.client getRootResource:^(YBHALResource *resource) {
         self.rootResource = resource;
     } failure:^(AFHTTPRequestOperation *task, NSError *error) {
         NSLog(@"error: %@", error);
     }];
+
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)configureView

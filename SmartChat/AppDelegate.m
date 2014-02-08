@@ -1,13 +1,15 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-
+#import "HTTPClient.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+
+    HTTPClient *client = [[HTTPClient alloc] init];
+    LoginViewController *loginViewController = [[LoginViewController alloc] initWithClient:client];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     
     self.window.rootViewController = navigationController;
