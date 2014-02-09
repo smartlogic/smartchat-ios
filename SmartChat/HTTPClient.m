@@ -15,11 +15,16 @@
 
 @implementation HTTPClient
 
+
++ (id)clientWithClient:(HTTPClient *)client credentials:(Credentials *)credentials
+{
+    return [[HTTPClient alloc] initWithClient:client credentials:credentials];
+}
+
 - (id)init
 {
     self = [super init];
     if(self){
-        self.baseURL = [NSURL URLWithString:@"http://roberto.local:9000/"];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         manager.requestSerializer = [AFJSONRequestSerializer serializerWithWritingOptions:(NSJSONWritingPrettyPrinted)];
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -29,20 +34,26 @@
     return self;
 }
 
-- (id)initWithCredentials:(Credentials *)credentials
+- (id)initWithBaseURL:(NSURL *)baseURL credentials:(Credentials *)credentials
 {
     self = [self init];
-    if(self) {
+    if(self){
+        self.baseURL = baseURL;
         self.credentials = credentials;
     }
-    
+
     return self;
+}
+
+- (id)initWithClient:(HTTPClient *)client credentials:(Credentials *)credentials
+{
+    return [self initWithBaseURL:client.baseURL credentials:credentials];
 }
 
 - (void)getRootResource:(void (^)(YBHALResource *resource))success
                 failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
 {
-    if(self.credentials && self.credentials.username && self.credentials.password){
+    if(self.credentials && self.credentials.username && self.credentials.password && self.credentials.privateKey){
         NSString *signedPath = [self signedPath:self.baseURL.absoluteString];
         [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
     }
@@ -56,18 +67,20 @@
 }
 
 - (void)authenticate:(YBHALLink *)link
-             success:(void (^)(YBHALResource *))success
+            username:(NSString *)username
+            password:(NSString *)password
+             success:(void (^)(YBHALResource *, NSString *))success
              failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
 {
-    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username
-                                                                   password:self.credentials.password];
+    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username
+                                                                   password:password];
 
     [self.manager POST:[link.URL absoluteString]
             parameters:nil
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
                    YBHALResource *resource = [responseObject HALResourceWithBaseURL:self.baseURL];
-                   self.credentials.privateKey = [resource objectForKeyedSubscript:@"private_key"];
-                   success(resource);
+                   NSString *privateKey = [resource objectForKeyedSubscript:@"private_key"];
+                   success(resource, privateKey);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    failure(operation, error);
                }];

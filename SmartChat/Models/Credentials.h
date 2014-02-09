@@ -2,10 +2,12 @@
 
 @interface Credentials : NSObject
 
-@property (nonatomic, strong) NSString *privateKey;
-@property (nonatomic, strong) NSString *username;
-@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong, readonly) NSString *privateKey;
+@property (nonatomic, strong, readonly) NSString *username;
+@property (nonatomic, strong, readonly) NSString *password;
+@property (readonly) BOOL authenticated;
 
-- (id)initWithUsername:(NSString *)username password:(NSString *)password;
+- (id)initWithUserDefaults:(NSUserDefaults *)defaults;
+- (id)initWithUsername:(NSString *)username password:(NSString *)password privateKey:(NSString *)privateKey;
 
 @end

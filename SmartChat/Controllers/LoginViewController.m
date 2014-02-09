@@ -89,22 +89,32 @@
 {
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
-    Credentials *credentials = [[Credentials alloc] initWithUsername:username password:password];
 
-    HTTPClient *client = [[HTTPClient alloc] initWithCredentials:credentials];
-    [client authenticate:[self.rootResource linkForRelation:@"http://smartchat.smartlogic.io/relations/user-sign-in"]
-                 success:^(YBHALResource *resource) {
-                     [client getRootResource:^(YBHALResource *resource) {
-                         CaptureViewController *cameraViewController = [[CaptureViewController alloc] initWithHTTPClient:client
-                                                                                                              resource:resource];
-                         [self.navigationController pushViewController:cameraViewController animated:YES];
-                     } failure:^(AFHTTPRequestOperation *task, NSError *error) {
-                         NSLog(@"error: %@", error);
-                     }];
-                 }
-                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                     NSLog(@"error: %@", error);
-                 }];
+    [self.client authenticate:[self.rootResource linkForRelation:@"http://smartchat.smartlogic.io/relations/user-sign-in"]
+                     username:username
+                     password:password
+                      success:^(YBHALResource *resource, NSString *privateKey){
+
+                          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                          [defaults setObject:username forKey:@"username"];
+                          [defaults setObject:password forKey:@"password"];
+                          [defaults setObject:privateKey forKey:@"privateKey"];
+                          [defaults synchronize];
+
+                          Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
+                          HTTPClient *client = [HTTPClient clientWithClient:self.client credentials:credentials];
+
+                          [client getRootResource:^(YBHALResource *resource) {
+                              CaptureViewController *cameraViewController = [[CaptureViewController alloc] initWithHTTPClient:client
+                                                                                                                     resource:resource];
+                              [self.navigationController pushViewController:cameraViewController animated:YES];
+                          } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+                              NSLog(@"error: %@", error);
+                          }];
+                      }
+                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                          NSLog(@"error: %@", error);
+                      }];
 }
 
 @end

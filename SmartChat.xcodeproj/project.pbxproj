@@ -31,6 +31,7 @@
 		0FC4319118909247002833A6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4319018909247002833A6 /* Credentials.m */; };
 		0FD7005418A4239100A0A821 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7005318A4239100A0A821 /* Security.framework */; };
 		0FE30BAA18A746E90073BCCF /* private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0FE30BA918A746E90073BCCF /* private_key.pem */; };
+		0FE30BAF18A839940073BCCF /* CredentialsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE30BAE18A839940073BCCF /* CredentialsSpec.m */; };
 		C015A52866AD45D4AF7E28BB /* libPods-SmartChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 856612DFFD5D4FAEA7682AC4 /* libPods-SmartChatTests.a */; };
 		D9ED6A6E80C14B76814440BC /* libPods-SmartChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5EEE63FF2D488C8520D73C /* libPods-SmartChat.a */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		0FC4319018909247002833A6 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
 		0FD7005318A4239100A0A821 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0FE30BA918A746E90073BCCF /* private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = private_key.pem; sourceTree = "<group>"; };
+		0FE30BAE18A839940073BCCF /* CredentialsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsSpec.m; sourceTree = "<group>"; };
 		824430812FC84F6AAF455F64 /* Pods-SmartChat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartChat.xcconfig"; path = "Pods/Pods-SmartChat.xcconfig"; sourceTree = "<group>"; };
 		856612DFFD5D4FAEA7682AC4 /* libPods-SmartChatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartChatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5EEE63FF2D488C8520D73C /* libPods-SmartChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 				0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */,
 				0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */,
 				0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */,
+				0FE30BAE18A839940073BCCF /* CredentialsSpec.m */,
 			);
 			path = SmartChatTests;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F81B24518A491FD00CD4FEC /* NSStringSHA256DigestSpec.m in Sources */,
+				0FE30BAF18A839940073BCCF /* CredentialsSpec.m in Sources */,
 				0F4A7996188DEA6C00237F24 /* HTTPClientSpec.m in Sources */,
 				0F81B24A18A553E200CD4FEC /* NSStringKeySigningSpec.m in Sources */,
 			);
