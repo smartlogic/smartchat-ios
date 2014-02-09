@@ -13,6 +13,9 @@
 - (void)authenticate:(YBHALLink *)link
              success:(void (^)(YBHALResource *))success
              failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure;
+- (void)registerDevice:(YBHALLink *)link
+               success:(void (^)(YBHALResource *resource))success
+               failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 
 - (NSString *)signedPath:(NSString *)path;
 @end

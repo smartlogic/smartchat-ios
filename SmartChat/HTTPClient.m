@@ -73,6 +73,26 @@
                }];
 }
 
+- (void)registerDevice:(YBHALLink *)link
+               success:(void (^)(YBHALResource *resource))success
+               failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
+{
+    NSString *signedPath = [self signedPath:link.URL.absoluteString];
+    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
+
+    NSUUID *uuid = [[UIDevice currentDevice] identifierForVendor];
+    NSDictionary *parameters = @{@"device_id": uuid.UUIDString,
+                                 @"device_type": @"iOS"};
+
+    [self.manager POST:link.URL.absoluteString
+            parameters:parameters
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  success([responseObject HALResourceWithBaseURL:self.baseURL]);
+              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  failure(operation, error);
+              }];
+}
+
 - (NSString *)passphrase
 {
     NSString *passphrase = [self.credentials.password copy];
