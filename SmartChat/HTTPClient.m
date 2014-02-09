@@ -43,9 +43,6 @@
                 failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
 {
     if(self.credentials && self.credentials.username && self.credentials.password){
-        [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username
-                                                                       password:self.credentials.password];
-        
         NSString *signedPath = [self signedPath:self.baseURL.absoluteString];
         [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
     }
