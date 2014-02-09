@@ -16,18 +16,18 @@
     
     const char *pass = [passphrase UTF8String];
     
-    if ((publicBIO = BIO_new_mem_buf((unsigned char *)[privateKeyData bytes], [privateKeyData length])) == NO) {
+    if ((publicBIO = BIO_new_mem_buf((unsigned char *)[privateKeyData bytes], (unsigned int)[privateKeyData length])) == NO) {
         NSLog(@"BIO_new_mem_buf() failed!");
         return nil;
     }
     
-    if (PEM_read_bio_PrivateKey(publicBIO, &privateKey, NULL, pass) == NO) {
+    if (PEM_read_bio_PrivateKey(publicBIO, &privateKey, NULL, (char *)pass) == NO) {
         NSLog(@"PEM_read_bio_PrivateKey() failed!");
         return nil;
     }
     
     const char *cString = [self UTF8String];
-    unsigned int stringLength = [self length];
+    unsigned int stringLength = (unsigned int)[self length];
     
     unsigned char *signatureBuffer[EVP_MAX_MD_SIZE];
     int signatureLength;
