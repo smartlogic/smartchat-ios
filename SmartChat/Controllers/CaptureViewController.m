@@ -13,16 +13,15 @@
 
 @implementation CaptureViewController
 
-- (id)initWithHTTPClient:(HTTPClient *)client resource:(YBHALResource *)resource
+- (id)init
 {
-    self = [self init];
+    self = [super init];
     if(self){
-        self.client = client;
-        self.resource = resource;
         self.imagePickerViewController = [[UIImagePickerController alloc] init];
         self.imagePickerViewController.delegate = self;
         self.imagePickerViewController.allowsEditing = YES;
         self.imagePickerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+
         AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
         NSError *error = nil;
         AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
@@ -33,6 +32,27 @@
             self.imagePickerViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
     }
+
+    return self;
+
+}
+
+- (id)initWithHTTPClient:(HTTPClient *)client
+{
+    self = [self init];
+    if(self){
+        self.client = client;
+    }
+    return self;
+}
+
+- (id)initWithHTTPClient:(HTTPClient *)client resource:(YBHALResource *)resource
+{
+    self = [self init];
+    if(self){
+        self.client = client;
+        self.resource = resource;
+    }
     return self;
 }
 
@@ -42,13 +62,22 @@
     self.view.backgroundColor = [UIColor blackColor];
     [self.navigationController presentViewController:self.imagePickerViewController animated:NO completion:nil];
 
-    // NOTE: Guard with defaults check to see if the device has been registered already
-    [self.client registerDevice:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/devices"]
-                        success:^(YBHALResource *resource) {
-                            NSLog(@"resource; %@", resource);
-                        } failure:^(AFHTTPRequestOperation *task, NSError *error) {
-                            NSLog(@"error: %@", error);
-                        }];
+    if(self.resource){
+        // NOTE: Guard with defaults check to see if the device has been registered already
+        [self.client registerDevice:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/devices"]
+                            success:^(YBHALResource *resource) {
+                                NSLog(@"resource; %@", resource);
+                            } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+                                NSLog(@"error: %@", error);
+                            }];
+    } else {
+        [self.client getRootResource:^(YBHALResource *resource) {
+            self.resource = resource;
+        } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+            NSLog(@"error: %@", error);
+        }];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning

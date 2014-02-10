@@ -5,6 +5,7 @@
 
 @interface CaptureViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+- (id)initWithHTTPClient:(HTTPClient *)client;
 - (id)initWithHTTPClient:(HTTPClient *)client resource:(YBHALResource *)resource;
 
 @end
