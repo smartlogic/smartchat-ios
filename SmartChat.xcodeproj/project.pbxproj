@@ -187,11 +187,10 @@
 		0F476D1E187B837F00338F61 /* SmartChatTests */ = {
 			isa = PBXGroup;
 			children = (
+				0FE30BB118A869980073BCCF /* Models */,
+				0FE30BB018A8693E0073BCCF /* Categories */,
 				0F476D1F187B837F00338F61 /* Supporting Files */,
 				0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */,
-				0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */,
-				0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */,
-				0FE30BAE18A839940073BCCF /* CredentialsSpec.m */,
 			);
 			path = SmartChatTests;
 			sourceTree = "<group>";
@@ -249,6 +248,23 @@
 			children = (
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		0FE30BB018A8693E0073BCCF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */,
+				0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		0FE30BB118A869980073BCCF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FE30BAE18A839940073BCCF /* CredentialsSpec.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
