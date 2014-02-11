@@ -15,18 +15,14 @@
     if (self) {
         self.usernameField = [[UITextField alloc] init];
         self.usernameField.translatesAutoresizingMaskIntoConstraints = NO;
+        self.usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.usernameField.borderStyle = UITextBorderStyleRoundedRect;
-#ifdef DEBUG
-        self.usernameField.text = @"tvon";
-#endif
         self.usernameField.placeholder = @"Username";
         
         self.passwordField = [[UITextField alloc] init];
         self.passwordField.translatesAutoresizingMaskIntoConstraints = NO;
+        self.passwordField.secureTextEntry = YES;
         self.passwordField.borderStyle = UITextBorderStyleRoundedRect;
-#ifdef DEBUG
-        self.passwordField.text = @"password";
-#endif
         self.passwordField.placeholder = @"Password";
         
         self.submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -37,6 +33,7 @@
         
         self.registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.registerButton.translatesAutoresizingMaskIntoConstraints = NO;
+        self.registerButton.backgroundColor = [UIColor colorWithRed:150/255.0f green:150/255.0f blue:150/255.0f alpha:1.0f];
         [self.registerButton setTitle:@"Register" forState:UIControlStateNormal];
         [self.registerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
