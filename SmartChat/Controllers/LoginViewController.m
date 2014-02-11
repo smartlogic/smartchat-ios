@@ -3,16 +3,23 @@
 #import <AFNetworking/AFNetworking.h>
 #import <HyperBek/HyperBek.h>
 
+#import "UIAlertView+NSError.h"
+
 #import "Credentials.h"
 #import "HTTPClient.h"
 
 #import "CaptureViewController.h"
+
+#import "LoginView.h"
+
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface LoginViewController ()
 @property (nonatomic, strong) UITextField *usernameField;
 @property (nonatomic, strong) UITextField *passwordField;
 @property (nonatomic, strong) YBHALResource *rootResource;
 @property (nonatomic, strong) HTTPClient *client;
+@property (nonatomic, strong) LoginView *view;
 @end
 
 @implementation LoginViewController
@@ -26,17 +33,33 @@
     return self;
 }
 
+- (void)loadView
+{
+    self.view = [[LoginView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    self.navigationController.navigationBarHidden = YES;
+
+    [self getRootResource];
+
+    [[self.view.submitButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
+        [self authenticate];
+    }];
+
+}
+
+- (void)getRootResource
+{
     [self.client getRootResource:^(YBHALResource *resource) {
         self.rootResource = resource;
     } failure:^(AFHTTPRequestOperation *task, NSError *error) {
         NSLog(@"error: %@", error);
+        [[UIAlertView alertViewWithError:error] show];
     }];
-
-    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,57 +67,15 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)configureView
+- (void)authenticate
 {
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    UILabel *usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 60, 220, 40)];
-    usernameLabel.text = @"Username";
-    
-    self.usernameField = [[UITextField alloc] initWithFrame:CGRectMake(10, 100, 220, 40)];
-    self.usernameField.borderStyle = UITextBorderStyleBezel;
-    self.usernameField.text = @"tvon";
-    
-    UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, 220, 40)];
-    passwordLabel.text = @"Password";
-    
-    self.passwordField = [[UITextField alloc] initWithFrame:CGRectMake(10, 180, 220, 40)];
-    self.passwordField.borderStyle = UITextBorderStyleBezel;
-    self.passwordField.text = @"password";
-    
-    UIButton *submitButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 220, 220, 40)];
-    [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
-    [submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [submitButton addTarget:self action:@selector(submitButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *registerButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 260, 220, 40)];
-    [registerButton setTitle:@"Register" forState:UIControlStateNormal];
-    [registerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [registerButton addTarget:self action:@selector(registerButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:usernameLabel];
-    [self.view addSubview:self.usernameField];
-    [self.view addSubview:passwordLabel];
-    [self.view addSubview:self.passwordField];
-    [self.view addSubview:submitButton];
-    [self.view addSubview:registerButton];
-}
-
-- (IBAction)registerButtonPressed:(id)sender
-{
-    NSLog(@"registerButtonPressed");
-}
-
-- (IBAction)submitButtonPressed:(id)sender
-{
-    NSString *username = self.usernameField.text;
-    NSString *password = self.passwordField.text;
+    NSString *username = self.view.username;
+    NSString *password = self.view.password;
 
     [self.client authenticate:[self.rootResource linkForRelation:@"http://smartchat.smartlogic.io/relations/user-sign-in"]
                      username:username
                      password:password
                       success:^(YBHALResource *resource, NSString *privateKey){
-
                           NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                           [defaults setObject:username forKey:@"username"];
                           [defaults setObject:password forKey:@"password"];
@@ -109,10 +90,12 @@
                                                                                                                      resource:resource];
                               [self.navigationController pushViewController:cameraViewController animated:YES];
                           } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+                              [[UIAlertView alertViewWithError:error] show];
                               NSLog(@"error: %@", error);
                           }];
                       }
                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                          [[UIAlertView alertViewWithError:error] show];
                           NSLog(@"error: %@", error);
                       }];
 }

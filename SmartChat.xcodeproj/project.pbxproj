@@ -22,6 +22,7 @@
 		0F4A7991188CF16600237F24 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A7990188CF16600237F24 /* HTTPClient.m */; };
 		0F4A7996188DEA6C00237F24 /* HTTPClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */; };
 		0F5695E818A6AE790061715A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5695E718A6AE790061715A /* AVFoundation.framework */; };
+		0F799D5118AAB38B0045A940 /* UIAlertView+NSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F799D5018AAB38B0045A940 /* UIAlertView+NSError.m */; };
 		0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */; };
 		0F81B24518A491FD00CD4FEC /* NSStringSHA256DigestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */; };
 		0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */; };
@@ -68,6 +69,8 @@
 		0F4A7990188CF16600237F24 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClientSpec.m; sourceTree = "<group>"; };
 		0F5695E718A6AE790061715A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0F799D4F18AAB38B0045A940 /* UIAlertView+NSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+NSError.h"; sourceTree = "<group>"; };
+		0F799D5018AAB38B0045A940 /* UIAlertView+NSError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+NSError.m"; sourceTree = "<group>"; };
 		0F81B24118A4919D00CD4FEC /* NSString+SHA256Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256Digest.h"; sourceTree = "<group>"; };
 		0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA256Digest.m"; sourceTree = "<group>"; };
 		0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringSHA256DigestSpec.m; sourceTree = "<group>"; };
@@ -165,8 +168,6 @@
 				0F97D4AA18A1E7EE0024A427 /* Delegates */,
 				0F476D11187B837F00338F61 /* Images.xcassets */,
 				0F476D06187B837F00338F61 /* Supporting Files */,
-				0F4A798C188B32CB00237F24 /* LoginView.h */,
-				0F4A798D188B32CB00237F24 /* LoginView.m */,
 				0F4A798F188CF16500237F24 /* HTTPClient.h */,
 				0F4A7990188CF16600237F24 /* HTTPClient.m */,
 			);
@@ -221,6 +222,8 @@
 				0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */,
 				0F81B24118A4919D00CD4FEC /* NSString+SHA256Digest.h */,
 				0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */,
+				0F799D4F18AAB38B0045A940 /* UIAlertView+NSError.h */,
+				0F799D5018AAB38B0045A940 /* UIAlertView+NSError.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -239,6 +242,8 @@
 		0F81B24E18A5DE7F00CD4FEC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0F4A798C188B32CB00237F24 /* LoginView.h */,
+				0F4A798D188B32CB00237F24 /* LoginView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				0F476D10187B837F00338F61 /* AppDelegate.m in Sources */,
 				0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */,
 				0F4A7991188CF16600237F24 /* HTTPClient.m in Sources */,
+				0F799D5118AAB38B0045A940 /* UIAlertView+NSError.m in Sources */,
 				0F476D0C187B837F00338F61 /* main.m in Sources */,
 				0F4A798E188B32CB00237F24 /* LoginView.m in Sources */,
 				0F97D4A918A1E4C60024A427 /* CaptureViewController.m in Sources */,
