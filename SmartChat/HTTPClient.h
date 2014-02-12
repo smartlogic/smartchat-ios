@@ -20,6 +20,13 @@
 - (void)registerDevice:(YBHALLink *)link
                success:(void (^)(YBHALResource *resource))success
                failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+- (void)sendMedia:(YBHALLink *)link
+       recipients:(NSArray *)recipients
+             file:(UIImage *)file
+          overlay:(UIImage *)overlay
+              ttl:(NSUInteger)ttl
+          success:(void (^)(YBHALResource *resource))success
+          failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 
 - (NSString *)signedPath:(NSString *)path;
 @end

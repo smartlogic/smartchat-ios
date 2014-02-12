@@ -1,13 +1,18 @@
 #import "AppDelegate.h"
-#import "LoginViewController.h"
+
+#import <TestFlightSDK/TestFlight.h>
+
 #import "CaptureViewController.h"
-#import "HTTPClient.h"
 #import "Credentials.h"
+#import "HTTPClient.h"
+#import "LoginViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:@"0f35592b-343e-46c9-9d56-41b308fe2792"];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
