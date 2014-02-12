@@ -20,7 +20,7 @@
 - (void)registerDevice:(YBHALLink *)link
                success:(void (^)(YBHALResource *resource))success
                failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
-- (void)sendMedia:(YBHALLink *)link
+- (void)upload:(YBHALLink *)link
        recipients:(NSArray *)recipients
              file:(UIImage *)file
           overlay:(UIImage *)overlay

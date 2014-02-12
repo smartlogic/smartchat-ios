@@ -86,6 +86,34 @@
                }];
 }
 
+- (void)upload:(YBHALLink *)link
+       recipients:(NSArray *)recipients
+             file:(UIImage *)file
+          overlay:(UIImage *)overlay
+              ttl:(NSUInteger)ttl
+          success:(void (^)(YBHALResource *resource))success
+          failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
+{
+    NSString *signedPath = [self signedPath:link.URL.absoluteString];
+    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
+
+    NSDictionary *parameters = @{
+                                 @"media": @{
+                                         @"friend_ids": recipients,
+                                         @"file_name": @"smarch.png",
+                                         @"file": [UIImagePNGRepresentation(file) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]
+                                         }
+                                 };
+
+    [self.manager POST:link.URL.absoluteString
+            parameters:parameters
+               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   success([responseObject HALResourceWithBaseURL:self.baseURL]);
+               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   failure(operation, error);
+               }];
+}
+
 - (void)registerDevice:(YBHALLink *)link
                success:(void (^)(YBHALResource *resource))success
                failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
