@@ -5,7 +5,6 @@
 #import "CaptureViewController.h"
 #import "Credentials.h"
 #import "HTTPClient.h"
-#import "LoginViewController.h"
 
 @implementation AppDelegate
 
@@ -19,14 +18,8 @@
     Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
     HTTPClient *client = [[HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://roberto.local:9000/"] credentials:credentials];
 
-    UIViewController *rootViewController;
-    if(credentials.authenticated){
-        rootViewController = [[CaptureViewController alloc] initWithHTTPClient:client];
-    } else {
-        rootViewController = [[LoginViewController alloc] initWithClient:client];
-    }
-
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    CaptureViewController *captureViewController = [[CaptureViewController alloc] initWithHTTPClient:client];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:captureViewController];
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
