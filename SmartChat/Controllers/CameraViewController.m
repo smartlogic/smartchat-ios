@@ -122,6 +122,7 @@
     NSString *username = self.loginView.username;
     NSString *password = self.loginView.password;
 
+    __weak CameraViewController *weakSelf = self;
     [self.client authenticate:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/user-sign-in"]
                      username:username
                      password:password
@@ -135,8 +136,11 @@
 
                           Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
                           HTTPClient *client = [HTTPClient clientWithClient:self.client credentials:credentials];
+                          CameraViewController *strongSelf = weakSelf;
+                          strongSelf.client = client;
 
                           [client getRootResource:^(YBHALResource *resource) {
+                              strongSelf.resource = resource;
                               [UIView animateWithDuration:0.5f
                                                     delay:0
                                                   options:UIViewAnimationOptionCurveEaseIn
