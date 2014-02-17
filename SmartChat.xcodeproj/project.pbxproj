@@ -29,7 +29,6 @@
 		0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */; };
 		0F81B24A18A553E200CD4FEC /* NSStringKeySigningSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */; };
 		0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4A818A1E4C60024A427 /* CameraViewController.m */; };
-		0FC3B21E18896110006FF4FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3B21D18896110006FF4FB /* LoginViewController.m */; };
 		0FC4319118909247002833A6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4319018909247002833A6 /* Credentials.m */; };
 		0FD7005418A4239100A0A821 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7005318A4239100A0A821 /* Security.framework */; };
 		0FE30BAA18A746E90073BCCF /* private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0FE30BA918A746E90073BCCF /* private_key.pem */; };
@@ -83,8 +82,6 @@
 		0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringKeySigningSpec.m; sourceTree = "<group>"; };
 		0F97D4A718A1E4C60024A427 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		0F97D4A818A1E4C60024A427 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
-		0FC3B21C18896110006FF4FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		0FC3B21D18896110006FF4FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0FC4318F18909247002833A6 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		0FC4319018909247002833A6 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
 		0FD7005318A4239100A0A821 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -194,6 +191,7 @@
 		0F476D1E187B837F00338F61 /* SmartChatTests */ = {
 			isa = PBXGroup;
 			children = (
+				0FE30BB218A86A850073BCCF /* Controllers */,
 				0FE30BB118A869980073BCCF /* Models */,
 				0FE30BB018A8693E0073BCCF /* Categories */,
 				0F476D1F187B837F00338F61 /* Supporting Files */,
@@ -241,8 +239,6 @@
 				0F6789EE18AE8E9600E53192 /* CameraController.m */,
 				0F97D4A718A1E4C60024A427 /* CameraViewController.h */,
 				0F97D4A818A1E4C60024A427 /* CameraViewController.m */,
-				0FC3B21C18896110006FF4FB /* LoginViewController.h */,
-				0FC3B21D18896110006FF4FB /* LoginViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -280,6 +276,13 @@
 				0FE30BAE18A839940073BCCF /* CredentialsSpec.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0FE30BB218A86A850073BCCF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,7 +448,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FC3B21E18896110006FF4FB /* LoginViewController.m in Sources */,
 				0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */,
 				0F476D10187B837F00338F61 /* AppDelegate.m in Sources */,
 				0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */,

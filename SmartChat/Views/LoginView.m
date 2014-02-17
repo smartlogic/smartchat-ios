@@ -42,7 +42,7 @@
 
 - (void)layoutSubviews
 {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.5f];
 
     NSDictionary *views = @{
                             @"superview": self,
