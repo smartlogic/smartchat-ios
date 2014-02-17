@@ -63,15 +63,15 @@
         [self authenticate];
     }];
 
-
     [RACObserve(self.cameraController, image) subscribeNext:^(UIImage *image){
         if(image){
-            [self.client upload:self.resource[@""]
+            [self.client upload:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/media"]
                      recipients:@[@1]
                            file:image
                         overlay:nil
                             ttl:10.0f
                         success:^(YBHALResource *resource) {
+                            // The resource here has no use, but we need to update the UI
                         }
                         failure:^(AFHTTPRequestOperation *task, NSError *error) {
                             NSLog(@"error: %@", error);
@@ -83,7 +83,7 @@
         // NOTE: Guard with defaults check to see if the device has been registered already
         [self.client registerDevice:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/devices"]
                             success:^(YBHALResource *resource) {
-                                NSLog(@"resource; %@", resource);
+                                // This resource has no use, but the UI should respond if the device cannot be registered
                             }
                             failure:^(AFHTTPRequestOperation *task, NSError *error) {
                                 NSLog(@"error: %@", error);
@@ -91,6 +91,7 @@
     } else {
         [self.client getRootResource:^(YBHALResource *resource) {
             self.resource = resource;
+
             if (!self.client.authenticated) {
                 self.loginView.alpha = 0;
                 [UIView animateWithDuration:0.5f
@@ -104,6 +105,7 @@
                                  }];
                 
             }
+
         } failure:^(AFHTTPRequestOperation *task, NSError *error) {
             NSLog(@"error: %@", error);
         }];
