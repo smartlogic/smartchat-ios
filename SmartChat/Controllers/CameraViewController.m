@@ -128,9 +128,8 @@
                           [defaults synchronize];
 
                           Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
-                          HTTPClient *client = [HTTPClient clientWithClient:self.client credentials:credentials];
-                          CameraViewController *strongSelf = weakSelf;
-                          strongSelf.client = client;
+                          HTTPClient *client = [HTTPClient clientWithClient:weakSelf.client credentials:credentials];
+                          weakSelf.client = client;
 
                           [client getRootResource:^(YBHALResource *resource) {
                               weakSelf.resource = resource;
