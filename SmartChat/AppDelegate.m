@@ -2,7 +2,7 @@
 
 #import <TestFlightSDK/TestFlight.h>
 
-#import "CaptureViewController.h"
+#import "CameraViewController.h"
 #import "Credentials.h"
 #import "HTTPClient.h"
 
@@ -18,9 +18,10 @@
     Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
     HTTPClient *client = [[HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://roberto.local:9000/"] credentials:credentials];
 
-    CaptureViewController *captureViewController = [[CaptureViewController alloc] initWithHTTPClient:client];
+    CameraViewController *captureViewController = [[CameraViewController alloc] initWithHTTPClient:client];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:captureViewController];
-    
+    navigationController.navigationBarHidden = YES;
+
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 
