@@ -93,17 +93,8 @@
             self.resource = resource;
 
             if (!self.client.authenticated) {
-                self.loginView.alpha = 0;
-                [UIView animateWithDuration:0.5f
-                                      delay:0
-                                    options:UIViewAnimationOptionCurveEaseIn
-                                 animations:^{
-                                     [self.view addSubview:self.loginView];
-                                     self.loginView.alpha = 1.0f;
-                                 } completion:^(BOOL finished) {
-                                     NSLog(@"completed");
-                                 }];
-                
+                NSLog(@"we are NOT authenticated");
+                [self.loginView presentInView:self.view];
             }
 
         } failure:^(AFHTTPRequestOperation *task, NSError *error) {
@@ -142,17 +133,10 @@
                           strongSelf.client = client;
 
                           [client getRootResource:^(YBHALResource *resource) {
-                              strongSelf.resource = resource;
-                              [UIView animateWithDuration:0.5f
-                                                    delay:0
-                                                  options:UIViewAnimationOptionCurveEaseIn
-                                               animations:^{
-                                                   self.loginView.alpha = 0.0f;
-                                               } completion:^(BOOL finished) {
-                                                   if(finished){
-                                                       [self.loginView removeFromSuperview];
-                                                   }
-                                               }];
+                              weakSelf.resource = resource;
+
+                              [weakSelf registerDeviceIfNecessary];
+                              [weakSelf.loginView removeFromView];
                           } failure:^(AFHTTPRequestOperation *task, NSError *error) {
                               [[UIAlertView alertViewWithError:error] show];
                               NSLog(@"error: %@", error);
