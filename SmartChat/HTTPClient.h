@@ -29,4 +29,7 @@
           failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 
 - (NSString *)signedPath:(NSString *)path;
+
+- (BOOL)authenticated;
+
 @end

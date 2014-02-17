@@ -155,4 +155,9 @@
 };
 
 
+- (BOOL)authenticated
+{
+    return self.credentials.authenticated;
+}
+
 @end
