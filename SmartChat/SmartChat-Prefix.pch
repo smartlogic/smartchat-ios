@@ -22,3 +22,8 @@
 #else
     static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
+
+#define kDefaultsUsername @"username"
+#define kDefaultsPassword @"password"
+#define kDefaultsPrivateKey @"privateKey"
+#define kDefaultsDeviceRegistered @"deviceRegistered"

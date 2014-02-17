@@ -131,9 +131,9 @@
                       success:^(YBHALResource *resource, NSString *privateKey){
 
                           NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                          [defaults setObject:username forKey:@"username"];
-                          [defaults setObject:password forKey:@"password"];
-                          [defaults setObject:privateKey forKey:@"privateKey"];
+                          [defaults setObject:username forKey:kDefaultsUsername];
+                          [defaults setObject:password forKey:kDefaultsPassword];
+                          [defaults setObject:privateKey forKey:kDefaultsPrivateKey];
                           [defaults synchronize];
 
                           Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];

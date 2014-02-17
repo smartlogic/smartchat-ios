@@ -17,9 +17,9 @@
 
 - (id)initWithUserDefaults:(NSUserDefaults *)defaults
 {
-    return [self initWithUsername:[defaults stringForKey:@"username"]
-                         password:[defaults stringForKey:@"password"]
-                       privateKey:[defaults stringForKey:@"privateKey"]];
+    return [self initWithUsername:[defaults stringForKey:kDefaultsUsername]
+                         password:[defaults stringForKey:kDefaultsPassword]
+                       privateKey:[defaults stringForKey:kDefaultsPrivateKey]];
 }
 
 - (BOOL)authenticated
