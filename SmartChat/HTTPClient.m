@@ -60,6 +60,7 @@
     
     [self.manager GET:self.baseURL.absoluteString parameters:nil
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  DDLogVerbose(@"getRootResource - responseObject:\n%@", responseObject);
                   success([responseObject HALResourceWithBaseURL:self.baseURL]);
               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   failure(operation, error);
@@ -72,12 +73,14 @@
              success:(void (^)(YBHALResource *, NSString *))success
              failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
 {
+    
     [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username
                                                                    password:password];
-
+    
     [self.manager POST:[link.URL absoluteString]
             parameters:nil
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   DDLogVerbose(@"authenticate - responseObject:\n%@", responseObject);
                    YBHALResource *resource = [responseObject HALResourceWithBaseURL:self.baseURL];
                    NSString *privateKey = [resource objectForKeyedSubscript:@"private_key"];
                    success(resource, privateKey);
@@ -87,16 +90,16 @@
 }
 
 - (void)upload:(YBHALLink *)link
-       recipients:(NSArray *)recipients
-             file:(UIImage *)file
-          overlay:(UIImage *)overlay
-              ttl:(NSUInteger)ttl
-          success:(void (^)(YBHALResource *resource))success
-          failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
+    recipients:(NSArray *)recipients
+          file:(UIImage *)file
+       overlay:(UIImage *)overlay
+           ttl:(NSUInteger)ttl
+       success:(void (^)(YBHALResource *resource))success
+       failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
 {
     NSString *signedPath = [self signedPath:link.URL.absoluteString];
     [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
-
+    
     NSDictionary *parameters = @{
                                  @"media": @{
                                          @"friend_ids": recipients,
@@ -104,10 +107,11 @@
                                          @"file": [UIImagePNGRepresentation(file) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]
                                          }
                                  };
-
+    
     [self.manager POST:link.URL.absoluteString
             parameters:parameters
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   DDLogVerbose(@"upload - responseObject:\n%@", responseObject);
                    success([responseObject HALResourceWithBaseURL:self.baseURL]);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    failure(operation, error);
@@ -120,25 +124,26 @@
 {
     NSString *signedPath = [self signedPath:link.URL.absoluteString];
     [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
-
+    
     NSUUID *uuid = [[UIDevice currentDevice] identifierForVendor];
     NSDictionary *parameters = @{@"device_id": uuid.UUIDString,
                                  @"device_type": @"iOS"};
-
+    
     [self.manager POST:link.URL.absoluteString
             parameters:parameters
-              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  success([responseObject HALResourceWithBaseURL:self.baseURL]);
-              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  failure(operation, error);
-              }];
+               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   DDLogVerbose(@"registerDevice - responseObject:\n%@", responseObject);
+                   success([responseObject HALResourceWithBaseURL:self.baseURL]);
+               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   failure(operation, error);
+               }];
 }
 
 - (NSString *)passphrase
 {
     NSString *passphrase = [self.credentials.password copy];
     NSString *input;
-
+    
     for(int i = 0; i < 1000; i++){
         input = [NSString stringWithString:passphrase];
         passphrase = [input SHA256Digest];

@@ -1,6 +1,8 @@
 #import "AppDelegate.h"
 
 #import <TestFlightSDK/TestFlight.h>
+#import <CocoaLumberjack/DDTTYLogger.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 #import "CameraViewController.h"
 #import "Credentials.h"
@@ -11,6 +13,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [TestFlight takeOff:@"0f35592b-343e-46c9-9d56-41b308fe2792"];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
