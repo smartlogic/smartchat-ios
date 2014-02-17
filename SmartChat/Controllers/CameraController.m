@@ -429,8 +429,8 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
             if (imageDataSampleBuffer) {
                 NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-                UIImage *image = [[UIImage alloc] initWithData:imageData];
-//                [[[ALAssetsLibrary alloc] init] writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:nil];
+                self.image = [[UIImage alloc] initWithData:imageData];
+                [[[ALAssetsLibrary alloc] init] writeImageToSavedPhotosAlbum:[self.image CGImage] orientation:(ALAssetOrientation)[self.image imageOrientation] completionBlock:nil];
             }
         }];
     }];
