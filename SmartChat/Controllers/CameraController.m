@@ -83,19 +83,20 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     }];
 }
 
- - (void)dispatchInSessionQueue:(void (^)())block
+- (void)dispatchInSessionQueue:(void (^)())block
 {
     dispatch_async(self.sessionQueue, ^{
         block();
     });
 }
- - (void)removeObservers
+
+- (void)removeObservers
 {
-     [self dispatchInSessionQueue:^{
-         [self.captureSession stopRunning];
-         [[NSNotificationCenter defaultCenter] removeObserver:self name:AVCaptureDeviceSubjectAreaDidChangeNotification object:self.captureDeviceInput.device];
-         [[NSNotificationCenter defaultCenter] removeObserver:self.runtimeErrorHandlingObserver];
-     }];
+    [self dispatchInSessionQueue:^{
+        [self.captureSession stopRunning];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVCaptureDeviceSubjectAreaDidChangeNotification object:self.captureDeviceInput.device];
+        [[NSNotificationCenter defaultCenter] removeObserver:self.runtimeErrorHandlingObserver];
+    }];
 }
 
 - (id)initWithViewController:(UIViewController *)controller camearView:(CameraView *)cameraView
