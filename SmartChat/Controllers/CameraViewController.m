@@ -9,6 +9,8 @@
 #import "HTTPClient.h"
 #import "Credentials.h"
 #import "LoginView.h"
+#import "RegisterView.h"
+
 #import "FriendsViewController.h"
 
 @interface CameraViewController ()
@@ -18,7 +20,10 @@
 @property (nonatomic, strong) CameraView *cameraView;
 @property (nonatomic, strong) CameraController *cameraController;
 @property (nonatomic, strong) LoginView *loginView;
+@property (nonatomic, strong) RegisterView *registerView;
 @property (nonatomic, strong) NSArray *recipients;
+
+- (void)authenticate;
 @end
 
 @implementation CameraViewController
@@ -55,51 +60,97 @@
         [self authenticate];
     }];
 
-    [RACObserve(self.cameraController, image) subscribeNext:^(UIImage *image){
-        if(image){
-            [self.client upload:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/media"]
-                     recipients:@[@1]
-                           file:image
-                        overlay:nil
-                            ttl:10.0f
-                        success:^(YBHALResource *resource) {
-                            // The resource here has no use, but we need to update the UI
-                        }
-                        failure:^(AFHTTPRequestOperation *task, NSError *error) {
-                            NSLog(@"error: %@", error);
-                        }];
-        }
+    self.registerView = [[RegisterView alloc] initWithFrame:self.view.frame];
+    [[self.loginView.registerButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
+        [self.loginView removeFromView];
+        [self.registerView presentInView:self.view];
     }];
 
-    if(self.resource){
-        // NOTE: Guard with defaults check to see if the device has been registered already
-        [self.client registerDevice:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/devices"]
+    [[self.registerView.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
+        [self.registerView removeFromView];
+        [self.loginView presentInView:self.view];
+    }];
+
+    [[self.registerView.submitButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
+        [self registerUser];
+    }];
+
+    __weak CameraViewController *weakSelf = self;
+    [RACObserve(self.cameraController, image) subscribeNext:^(UIImage *image){
+        if(image){
+            FriendsViewController *friendsViewController = [[FriendsViewController alloc] initWithHTTPClient:weakSelf.client resource:weakSelf.resource];
+            [self.navigationController presentViewController:friendsViewController animated:YES completion:nil];
+            [[friendsViewController rac_signalForSelector:@selector(sendButtonPressed:)] subscribeNext:^(UIBarButtonItem *sendButton) {
+
+                NSLog(@"RAC got sendButtonPressed");
+                [self.client upload:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/media"]
+                         recipients:friendsViewController.recipients
+                               file:image
+                            overlay:nil
+                                ttl:10.0f
                             success:^(YBHALResource *resource) {
-                                // This resource has no use, but the UI should respond if the device cannot be registered
                             }
                             failure:^(AFHTTPRequestOperation *task, NSError *error) {
                                 NSLog(@"error: %@", error);
                             }];
-    } else {
-        [self.client getRootResource:^(YBHALResource *resource) {
-            self.resource = resource;
 
-            if (!self.client.authenticated) {
-                NSLog(@"we are NOT authenticated");
-                [self.loginView presentInView:self.view];
-            }
+            }];
+        }
+    }];
 
-        } failure:^(AFHTTPRequestOperation *task, NSError *error) {
-            NSLog(@"error: %@", error);
-        }];
+    [self.client getRootResource:^(YBHALResource *resource) {
+
+        self.resource = resource;
+
+        if (self.client.authenticated) {
+            [self loadRootResource];
+            NSLog(@"authenticated, loading root resource");
+        } else {
+            NSLog(@"not authenticated, showing login view");
+            [self.loginView presentInView:self.view];
+        }
+
+    } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+        NSLog(@"error: %@", error);
+    }];
+
+}
+
+- (void)registerDeviceIfNecessary
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if(![defaults boolForKey:kDefaultsDeviceRegistered]){
+        [self.client registerDevice:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/devices"]
+                            success:^(YBHALResource *resource) {
+                                [defaults setBool:YES forKey:kDefaultsDeviceRegistered];
+                                [defaults synchronize];
+                        }
+                        failure:^(AFHTTPRequestOperation *task, NSError *error) {
+                            NSLog(@"error: %@", error);
+                        }];
     }
-
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     NSLog(@"CameraViewController#didReceiveMemoryWarning");
+}
+
+- (void)loadRootResource
+{
+    __weak CameraViewController *weakSelf = self;
+    [self.client getRootResource:^(YBHALResource *resource) {
+        weakSelf.resource = resource;
+        [weakSelf registerDeviceIfNecessary];
+        if(weakSelf.loginView.alpha > 0){
+            [weakSelf.loginView removeFromView];
+        }
+    } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+        [[UIAlertView alertViewWithError:error] show];
+        NSLog(@"error: %@", error);
+    }];
+
 }
 
 - (void)authenticate
@@ -112,6 +163,7 @@
                      username:username
                      password:password
                       success:^(YBHALResource *resource, NSString *privateKey){
+                          [weakSelf.loginView removeFromView];
 
                           NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                           [defaults setObject:username forKey:kDefaultsUsername];
@@ -123,15 +175,38 @@
                           HTTPClient *client = [HTTPClient clientWithClient:weakSelf.client credentials:credentials];
                           weakSelf.client = client;
 
-                          [client getRootResource:^(YBHALResource *resource) {
-                              weakSelf.resource = resource;
+                          [weakSelf loadRootResource];
+                      }
+                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                          [[UIAlertView alertViewWithError:error] show];
+                          NSLog(@"error: %@", error);
+                      }];
+}
 
-                              [weakSelf registerDeviceIfNecessary];
-                              [weakSelf.loginView removeFromView];
-                          } failure:^(AFHTTPRequestOperation *task, NSError *error) {
-                              [[UIAlertView alertViewWithError:error] show];
-                              NSLog(@"error: %@", error);
-                          }];
+- (void)registerUser
+{
+    NSString *username = self.registerView.username;
+    NSString *password = self.registerView.password;
+    NSString *email = self.registerView.email;
+
+    __weak CameraViewController *weakSelf = self;
+    [self.client registerUser:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/users"]
+                     username:username
+                     password:password
+                        email:email
+                      success:^(YBHALResource *resource, NSString *privateKey){
+                          [weakSelf.registerView removeFromView];
+
+                          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                          [defaults setObject:username forKey:kDefaultsUsername];
+                          [defaults setObject:password forKey:kDefaultsPassword];
+                          [defaults setObject:privateKey forKey:kDefaultsPrivateKey];
+                          [defaults synchronize];
+
+                          Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
+                          HTTPClient *client = [HTTPClient clientWithClient:weakSelf.client credentials:credentials];
+                          weakSelf.client = client;
+                          [weakSelf loadRootResource];
                       }
                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                           [[UIAlertView alertViewWithError:error] show];

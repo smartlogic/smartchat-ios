@@ -15,18 +15,27 @@
 - (void)authenticate:(YBHALLink *)link
             username:(NSString *)username
             password:(NSString *)password
-             success:(void (^)(YBHALResource *, NSString *privateKey))success
-             failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure;
+             success:(void (^)(YBHALResource *resource, NSString *privateKey))success
+             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (void)registerUser:(YBHALLink *)link
+            username:(NSString *)username
+            password:(NSString *)password
+               email:(NSString *)email
+             success:(void (^)(YBHALResource *resource, NSString *privateKey))success
+             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (void)registerDevice:(YBHALLink *)link
                success:(void (^)(YBHALResource *resource))success
                failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 - (void)upload:(YBHALLink *)link
-       recipients:(NSArray *)recipients
-             file:(UIImage *)file
-          overlay:(UIImage *)overlay
-              ttl:(NSUInteger)ttl
-          success:(void (^)(YBHALResource *resource))success
-          failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+    recipients:(NSArray *)recipients
+          file:(UIImage *)file
+       overlay:(UIImage *)overlay
+           ttl:(NSUInteger)ttl
+       success:(void (^)(YBHALResource *resource))success
+       failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+- (void)friends:(YBHALLink *)link
+        success:(void (^)(YBHALResource *resource, NSArray *friends))success
+        failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 
 - (NSString *)signedPath:(NSString *)path;
 

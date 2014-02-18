@@ -70,8 +70,8 @@
 - (void)authenticate:(YBHALLink *)link
             username:(NSString *)username
             password:(NSString *)password
-             success:(void (^)(YBHALResource *, NSString *))success
-             failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
+             success:(void (^)(YBHALResource *resource, NSString *privateKey))success
+             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     
     [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username
@@ -81,6 +81,32 @@
             parameters:nil
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
                    DDLogVerbose(@"authenticate - responseObject:\n%@", responseObject);
+                   YBHALResource *resource = [responseObject HALResourceWithBaseURL:self.baseURL];
+                   NSString *privateKey = [resource objectForKeyedSubscript:@"private_key"];
+                   success(resource, privateKey);
+               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   failure(operation, error);
+               }];
+}
+- (void)registerUser:(YBHALLink *)link
+            username:(NSString *)username
+            password:(NSString *)password
+               email:(NSString *)email
+             success:(void (^)(YBHALResource *resource, NSString *privateKey))success
+             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+{
+    NSDictionary *parameters = @{
+                                 @"user": @{
+                                         @"username": username,
+                                         @"password": password,
+                                         @"email": email
+                                         }
+                                 };
+
+    [self.manager POST:[link.URL absoluteString]
+            parameters:parameters
+               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   DDLogVerbose(@"registerUser - responseObject:\n%@", responseObject);
                    YBHALResource *resource = [responseObject HALResourceWithBaseURL:self.baseURL];
                    NSString *privateKey = [resource objectForKeyedSubscript:@"private_key"];
                    success(resource, privateKey);
@@ -124,11 +150,11 @@
 {
     NSString *signedPath = [self signedPath:link.URL.absoluteString];
     [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
-    
+
     NSUUID *uuid = [[UIDevice currentDevice] identifierForVendor];
     NSDictionary *parameters = @{@"device_id": uuid.UUIDString,
                                  @"device_type": @"iOS"};
-    
+
     [self.manager POST:link.URL.absoluteString
             parameters:parameters
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -139,11 +165,34 @@
                }];
 }
 
+- (void)friends:(YBHALLink *)link
+        success:(void (^)(YBHALResource *resource, NSArray *friends))success
+        failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
+{
+    NSString *signedPath = [self signedPath:link.URL.absoluteString];
+    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
+
+    [self.manager GET:link.URL.absoluteString
+            parameters:nil
+               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   // HACK/NOTE:
+                   // HyperBek does not seem to support what we are doing with the API here, so we'll parse this manually.
+                   NSDictionary *dict = (NSDictionary *)responseObject;
+                   NSArray *friends = dict[@"_embedded"][@"friends"];
+                   DDLogVerbose(@"friends - responseObject:\n%@", responseObject);
+                   success([responseObject HALResourceWithBaseURL:self.baseURL], friends);
+               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   failure(operation, error);
+               }];
+}
+
+
+
 - (NSString *)passphrase
 {
     NSString *passphrase = [self.credentials.password copy];
     NSString *input;
-    
+
     for(int i = 0; i < 1000; i++){
         input = [NSString stringWithString:passphrase];
         passphrase = [input SHA256Digest];

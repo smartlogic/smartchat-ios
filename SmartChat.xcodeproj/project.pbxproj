@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F20E07E18B3E87600BD439D /* RegisterView.m */; };
 		0F476D00187B837F00338F61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476CFF187B837F00338F61 /* Foundation.framework */; };
 		0F476D02187B837F00338F61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D01187B837F00338F61 /* CoreGraphics.framework */; };
 		0F476D04187B837F00338F61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D03187B837F00338F61 /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F20E07D18B3E87600BD439D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		0F20E07E18B3E87600BD439D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		0F476CFC187B837F00338F61 /* SmartChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F476CFF187B837F00338F61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0F476D01187B837F00338F61 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -171,7 +174,6 @@
 				0F5695EC18A6C6FD0061715A /* Models */,
 				0F81B24E18A5DE7F00CD4FEC /* Views */,
 				0F81B24D18A5BB6600CD4FEC /* Controllers */,
-				0F97D4AA18A1E7EE0024A427 /* Delegates */,
 				0F476D11187B837F00338F61 /* Images.xcassets */,
 				0F476D06187B837F00338F61 /* Supporting Files */,
 				0F4A798F188CF16500237F24 /* HTTPClient.h */,
@@ -255,15 +257,10 @@
 				0F4A798D188B32CB00237F24 /* LoginView.m */,
 				3683ECE1F7F4DED0EFCAA6F0 /* CameraView.m */,
 				3683E42EB2F042F2934C5E8B /* CameraView.h */,
+				0F20E07D18B3E87600BD439D /* RegisterView.h */,
+				0F20E07E18B3E87600BD439D /* RegisterView.m */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		0F97D4AA18A1E7EE0024A427 /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Delegates;
 			sourceTree = "<group>";
 		};
 		0FE30BB018A8693E0073BCCF /* Categories */ = {
@@ -341,6 +338,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = SmartLogic;
 				TargetAttributes = {
+					0F476CFB187B837F00338F61 = {
+						DevelopmentTeam = A5KUZ6FFMH;
+					};
 					0F476D16187B837F00338F61 = {
 						TestTargetID = 0F476CFB187B837F00338F61;
 					};
@@ -461,6 +461,7 @@
 				0F799D5118AAB38B0045A940 /* UIAlertView+NSError.m in Sources */,
 				0F476D0C187B837F00338F61 /* main.m in Sources */,
 				0F4A798E188B32CB00237F24 /* LoginView.m in Sources */,
+				0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */,
 				0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */,
 				0FC4319118909247002833A6 /* Credentials.m in Sources */,
 				0F6789EF18AE8E9600E53192 /* CameraController.m in Sources */,
@@ -526,6 +527,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -566,7 +568,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SmartLogic Solutions (A5KUZ6FFMH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SmartLogic Solutions (A5KUZ6FFMH)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -589,13 +592,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartChat/SmartChat-Prefix.pch";
 				INFOPLIST_FILE = "SmartChat/SmartChat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "A41A4E6D-5DEB-4D37-B880-B1C74D6085E1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -606,13 +607,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartChat/SmartChat-Prefix.pch";
 				INFOPLIST_FILE = "SmartChat/SmartChat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "276E2E30-E527-4643-898A-F18585E0B579";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
