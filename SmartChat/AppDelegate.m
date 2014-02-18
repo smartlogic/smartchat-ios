@@ -20,14 +20,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-    [defaults removeObjectForKey:kDefaultsUsername];
-    [defaults removeObjectForKey:kDefaultsPassword];
-    [defaults removeObjectForKey:kDefaultsPrivateKey];
-    [defaults synchronize];
-
     Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
-    HTTPClient *client = [[HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://roberto.local:9000/"] credentials:credentials];
+    HTTPClient *client = [[HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://smartchat.smartlogic.io/"] credentials:credentials];
 
     CameraViewController *captureViewController = [[CameraViewController alloc] initWithHTTPClient:client];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:captureViewController];
