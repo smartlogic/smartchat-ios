@@ -1,7 +1,5 @@
 #import "LoginView.h"
 
-#import <ReactiveCocoa.h>
-
 @interface LoginView ()
 @property (nonatomic, strong) UITextField *usernameField;
 @property (nonatomic, strong) UITextField *passwordField;
@@ -18,13 +16,16 @@
         self.usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.usernameField.borderStyle = UITextBorderStyleRoundedRect;
         self.usernameField.placeholder = @"Username";
-        
+        self.usernameField.keyboardType = UIKeyboardTypeAlphabet;
+        self.usernameField.spellCheckingType = UITextSpellCheckingTypeNo;
+
         self.passwordField = [[UITextField alloc] init];
         self.passwordField.translatesAutoresizingMaskIntoConstraints = NO;
         self.passwordField.secureTextEntry = YES;
         self.passwordField.borderStyle = UITextBorderStyleRoundedRect;
         self.passwordField.placeholder = @"Password";
-        
+        self.passwordField.keyboardType = UIKeyboardTypeAlphabet;
+
         self.submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
         self.submitButton.backgroundColor = [UIColor colorWithRed:119/255.0f green:205/255.0f blue:117/255.0f alpha:1.0f];
@@ -45,7 +46,7 @@
     self.alpha = 0;
     [UIView animateWithDuration:0.5f
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          [view addSubview:self];
                          self.alpha = 1.0f;
@@ -57,7 +58,7 @@
 {
     [UIView animateWithDuration:0.5f
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          self.alpha = 0.0f;
                      }

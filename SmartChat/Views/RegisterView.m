@@ -22,6 +22,7 @@
         self.emailField.borderStyle = UITextBorderStyleRoundedRect;
         self.emailField.placeholder = @"Email Address";
         self.emailField.keyboardType = UIKeyboardTypeEmailAddress;
+        self.emailField.spellCheckingType = UITextSpellCheckingTypeNo;
 
         self.usernameField = [[UITextField alloc] init];
         self.usernameField.translatesAutoresizingMaskIntoConstraints = NO;
@@ -29,6 +30,7 @@
         self.usernameField.borderStyle = UITextBorderStyleRoundedRect;
         self.usernameField.placeholder = @"Username";
         self.usernameField.keyboardType = UIKeyboardTypeAlphabet;
+        self.usernameField.spellCheckingType = UITextSpellCheckingTypeNo;
 
         self.passwordField = [[UITextField alloc] init];
         self.passwordField.translatesAutoresizingMaskIntoConstraints = NO;
