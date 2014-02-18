@@ -37,16 +37,6 @@
     return self;
 }
 
-- (id)initWithHTTPClient:(HTTPClient *)client resource:(YBHALResource *)resource
-{
-    self = [self init];
-    if(self){
-        self.client = client;
-        self.resource = resource;
-    }
-    return self;
-}
-
 - (void)loadView
 {
     self.cameraView = [[CameraView alloc] initWithFrame:[UIScreen mainScreen].bounds];
