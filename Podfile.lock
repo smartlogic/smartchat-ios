@@ -38,16 +38,20 @@ PODS:
   - ReactiveCocoa/Core (2.2.3):
     - ReactiveCocoa/no-arc
   - ReactiveCocoa/no-arc (2.2.3)
+  - TestFlightLogger (0.0.3):
+    - CocoaLumberjack
+    - TestFlightSDK
   - TestFlightSDK (2.2.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0.3)
-  - CocoaLumberjack
+  - CocoaLumberjack (~> 1.8.1)
   - CommonCrypto (~> 1.1)
   - HyperBek (from `https://bitbucket.org/dcutting/hyperbek`)
   - Kiwi/XCTest (~> 2.2.3)
   - OpenSSL (~> 1.0.1)
   - ReactiveCocoa (~> 2.2.3)
+  - TestFlightLogger (~> 0.0.3)
   - TestFlightSDK (~> 2.2.1)
 
 EXTERNAL SOURCES:
@@ -63,6 +67,7 @@ SPEC CHECKSUMS:
   Kiwi: 04c51e880831d291748ec702d42c4101f7eb95c9
   OpenSSL: 9b85178853701b1e9bbf70df695a4c149799e772
   ReactiveCocoa: b3cb6ebd50f1a0f2e39c6fd7ce3c428b6efcb22b
+  TestFlightLogger: 030f80932b79a0fc9414115a63c209bc62bb8f98
   TestFlightSDK: 030fa8a1bc8aa9ba5c9ae1be05ceaba775368c0c
 
 COCOAPODS: 0.29.0

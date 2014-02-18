@@ -2,6 +2,7 @@
 
 #import <TestFlightSDK/TestFlight.h>
 #import <CocoaLumberjack/DDTTYLogger.h>
+#import <TestFlightLogger/TestFlightLogger.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 #import "CameraViewController.h"
@@ -14,6 +15,7 @@
 {
     [TestFlight takeOff:@"0f35592b-343e-46c9-9d56-41b308fe2792"];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[TestFlightLogger sharedInstance]];
 
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
 

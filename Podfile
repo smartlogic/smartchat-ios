@@ -7,7 +7,8 @@ target 'SmartChat' do
   pod 'CommonCrypto', '~> 1.1'
   pod 'ReactiveCocoa', '~> 2.2.3'
   pod 'TestFlightSDK', '~> 2.2.1'
-  pod 'CocoaLumberjack'
+  pod 'CocoaLumberjack', '~> 1.8.1'
+  pod 'TestFlightLogger', '~> 0.0.3'
 end
 
 target 'SmartChatTests' do
