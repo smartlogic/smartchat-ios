@@ -9,6 +9,7 @@
 #import "HTTPClient.h"
 #import "Credentials.h"
 #import "LoginView.h"
+#import "FriendsViewController.h"
 
 @interface CameraViewController ()
 @property (nonatomic, strong) HTTPClient *client;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) CameraView *cameraView;
 @property (nonatomic, strong) CameraController *cameraController;
 @property (nonatomic, strong) LoginView *loginView;
+@property (nonatomic, strong) NSArray *recipients;
 @end
 
 @implementation CameraViewController

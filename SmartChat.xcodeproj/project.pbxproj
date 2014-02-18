@@ -31,6 +31,7 @@
 		0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4A818A1E4C60024A427 /* CameraViewController.m */; };
 		0FC4319118909247002833A6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4319018909247002833A6 /* Credentials.m */; };
 		0FD7005418A4239100A0A821 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7005318A4239100A0A821 /* Security.framework */; };
+		0FD7D1A718B26EAC00EC9142 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD7D1A618B26EAC00EC9142 /* FriendsViewController.m */; };
 		0FE30BAA18A746E90073BCCF /* private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0FE30BA918A746E90073BCCF /* private_key.pem */; };
 		0FE30BAF18A839940073BCCF /* CredentialsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE30BAE18A839940073BCCF /* CredentialsSpec.m */; };
 		3683EB4CE4D349CCD729B7D1 /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3683ECE1F7F4DED0EFCAA6F0 /* CameraView.m */; };
@@ -85,6 +86,8 @@
 		0FC4318F18909247002833A6 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		0FC4319018909247002833A6 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
 		0FD7005318A4239100A0A821 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0FD7D1A518B26EAC00EC9142 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		0FD7D1A618B26EAC00EC9142 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		0FE30BA918A746E90073BCCF /* private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = private_key.pem; sourceTree = "<group>"; };
 		0FE30BAE18A839940073BCCF /* CredentialsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsSpec.m; sourceTree = "<group>"; };
 		3683E42EB2F042F2934C5E8B /* CameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				0F6789EE18AE8E9600E53192 /* CameraController.m */,
 				0F97D4A718A1E4C60024A427 /* CameraViewController.h */,
 				0F97D4A818A1E4C60024A427 /* CameraViewController.m */,
+				0FD7D1A518B26EAC00EC9142 /* FriendsViewController.h */,
+				0FD7D1A618B26EAC00EC9142 /* FriendsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -448,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD7D1A718B26EAC00EC9142 /* FriendsViewController.m in Sources */,
 				0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */,
 				0F476D10187B837F00338F61 /* AppDelegate.m in Sources */,
 				0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */,
