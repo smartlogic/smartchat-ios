@@ -30,23 +30,20 @@
     self.recordButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.recordButton.adjustsImageWhenHighlighted = YES;
     self.recordButton.adjustsImageWhenDisabled = YES;
+    self.recordButton.enabled = NO;
 
     [self.stillButton setTitle:@"Still" forState:UIControlStateNormal];
     self.stillButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.stillButton.adjustsImageWhenHighlighted = YES;
     self.stillButton.adjustsImageWhenDisabled = YES;
 
-    self.cameraButton.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
-    self.recordButton.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
     self.stillButton.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
 
-    [self addSubview:self.cameraButton];
-    [self addSubview:self.recordButton];
+    [self addSubview:self.cameraSwitchButton];
     [self addSubview:self.stillButton];
 
     NSDictionary *views = @{
             @"superview": self,
-            @"recordButton": self.recordButton,
             @"cameraSwitchButton": self.cameraSwitchButton,
             @"stillButton": self.stillButton
     };
@@ -64,7 +61,7 @@
                                                                  metrics:nil
                                                                    views:views]];
 
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[stillButton(>=80)]-[recordButton(>=80)]-[cameraButton(>=80)]-|"
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[stillButton(>=80)]-|"
                                                                  options:NSLayoutFormatAlignAllCenterY
                                                                  metrics:nil
                                                                    views:views]];
