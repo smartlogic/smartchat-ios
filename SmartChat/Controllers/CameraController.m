@@ -47,7 +47,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         }];
         [RACObserve(self, sessionRunningAndDeviceAuthorized) subscribeNext:^(NSNumber *sessionRunningAndDeviceAuthorized){
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.cameraView.cameraButton.enabled = [sessionRunningAndDeviceAuthorized boolValue];
+                self.cameraView.cameraSwitchButton.enabled = [sessionRunningAndDeviceAuthorized boolValue];
                 self.cameraView.recordButton.enabled = [sessionRunningAndDeviceAuthorized boolValue];
                 self.cameraView.stillButton.enabled = [sessionRunningAndDeviceAuthorized boolValue];
             });
@@ -56,11 +56,11 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         [RACObserve(self.captureMovieFileOutput, recording) subscribeNext:^(NSNumber *recording){
             dispatch_async(dispatch_get_main_queue(), ^{
                 if ([recording boolValue]) {
-                    self.cameraView.cameraButton.enabled = NO;
+                    self.cameraView.cameraSwitchButton.enabled = NO;
                     [self.cameraView.recordButton setTitle:@"Stop" forState:UIControlStateNormal];
                     self.cameraView.recordButton.enabled = YES;
                 } else {
-                    self.cameraView.cameraButton.enabled = YES;
+                    self.cameraView.cameraSwitchButton.enabled = YES;
                     [self.cameraView.recordButton setTitle:@"Record" forState:UIControlStateNormal];
                     self.cameraView.recordButton.enabled = YES;
                 }
@@ -197,7 +197,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 	});
 
     [self.cameraView.stillButton addTarget:self action:@selector(snapStillImage:) forControlEvents:UIControlEventTouchUpInside];
-    [self.cameraView.cameraButton addTarget:self action:@selector(changeCamera:) forControlEvents:UIControlEventTouchUpInside];
+    [self.cameraView.cameraSwitchButton addTarget:self action:@selector(changeCamera:) forControlEvents:UIControlEventTouchUpInside];
     [self.cameraView.recordButton addTarget:self action:@selector(toggleMovieRecording:) forControlEvents:UIControlEventTouchUpInside];
 
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(focusAndExposeTap:)];
@@ -367,7 +367,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (IBAction)changeCamera:(id)sender
 {
-    self.cameraView.cameraButton.enabled = NO;
+    self.cameraView.cameraSwitchButton.enabled = NO;
     self.cameraView.recordButton.enabled = NO;
     self.cameraView.stillButton.enabled = NO;
 
@@ -409,7 +409,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         [self.captureSession commitConfiguration];
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.cameraView.cameraButton.enabled = YES;
+            self.cameraView.cameraSwitchButton.enabled = YES;
             self.cameraView.recordButton.enabled = YES;
             self.cameraView.stillButton.enabled = YES;
         });

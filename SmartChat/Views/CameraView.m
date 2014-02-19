@@ -1,10 +1,6 @@
 #import "CameraView.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface CameraView ()
-
-@end
-
 @implementation CameraView
 
 + (Class)layerClass
@@ -16,7 +12,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.cameraButton = [[UIButton alloc] init];
+        self.cameraSwitchButton = [[UIButton alloc] init];
         self.recordButton = [[UIButton alloc] init];
         self.stillButton = [[UIButton alloc] init];
     }
@@ -25,10 +21,10 @@
 
 - (void)layoutSubviews
 {
-    [self.cameraButton setTitle:@"Cam" forState:UIControlStateNormal];
-    self.cameraButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.cameraButton.adjustsImageWhenHighlighted = YES;
-    self.cameraButton.adjustsImageWhenDisabled = YES;
+    [self.cameraSwitchButton setImage:[UIImage imageNamed:@"CameraSwitchButton"] forState:UIControlStateNormal];
+    self.cameraSwitchButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.cameraSwitchButton.adjustsImageWhenHighlighted = YES;
+    self.cameraSwitchButton.adjustsImageWhenDisabled = YES;
 
     [self.recordButton setTitle:@"Rec" forState:UIControlStateNormal];
     self.recordButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -50,20 +46,20 @@
 
     NSDictionary *views = @{
             @"superview": self,
-            @"cameraButton": self.cameraButton,
             @"recordButton": self.recordButton,
+            @"cameraSwitchButton": self.cameraSwitchButton,
             @"stillButton": self.stillButton
     };
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[cameraSwitchButton(25)]"
+                                                                 options:NSLayoutFormatAlignAllCenterX
+                                                                 metrics:nil
+                                                                   views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[cameraSwitchButton(32)]-|"
+                                                                 options:NSLayoutFormatAlignAllCenterX
+                                                                 metrics:nil
+                                                                   views:views]];
 
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[stillButton(44)]-|"
-                                                                 options:NSLayoutFormatAlignAllCenterX
-                                                                 metrics:nil
-                                                                   views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[recordButton(44)]-|"
-                                                                 options:NSLayoutFormatAlignAllCenterX
-                                                                 metrics:nil
-                                                                   views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[cameraButton(44)]-|"
                                                                  options:NSLayoutFormatAlignAllCenterX
                                                                  metrics:nil
                                                                    views:views]];
