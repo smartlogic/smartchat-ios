@@ -36,6 +36,11 @@
 - (void)friends:(YBHALLink *)link
         success:(void (^)(YBHALResource *resource, NSArray *friends))success
         failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+- (void)search:(YBHALLink *)link
+        emails:(NSArray *)emails
+        phones:(NSArray *)phones
+       success:(void (^)(YBHALResource *resource, NSArray *matches))success
+       failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 
 - (NSString *)signedPath:(NSString *)path;
 

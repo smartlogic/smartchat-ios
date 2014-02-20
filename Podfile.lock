@@ -17,6 +17,7 @@ PODS:
   - AFNetworking/Serialization (2.0.3)
   - AFNetworking/UIKit (2.0.3):
     - AFNetworking/NSURLConnection
+  - APAddressBook (0.0.4)
   - CocoaLumberjack (1.8.1):
     - CocoaLumberjack/Extensions
   - CocoaLumberjack/Core (1.8.1)
@@ -45,6 +46,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0.3)
+  - APAddressBook (~> 0.0.4)
   - CocoaLumberjack (~> 1.8.1)
   - CommonCrypto (~> 1.1)
   - HyperBek (from `https://bitbucket.org/dcutting/hyperbek`)
@@ -60,6 +62,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
+  APAddressBook: f3f0c649f133e9d8ca8410eb223f0a5bc9a7e9e0
   CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
   CommonCrypto: 8996386fc0dcd3713ce39ea5efb4afadb9fa00e2
   CSURITemplate: d3ec6da88799010195522e0c20e049a18da6a6aa

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F04A9FB18B64925007D9F0E /* FindFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F04A9FA18B64925007D9F0E /* FindFriendsViewController.m */; };
+		0F04A9FE18B649B8007D9F0E /* FindFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F04A9FD18B649B8007D9F0E /* FindFriendsView.m */; };
+		0F04AA0118B6A0EA007D9F0E /* NSString+MD5Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F04AA0018B6A0EA007D9F0E /* NSString+MD5Hash.m */; };
+		0F08EB0518B53AF40017667F /* FriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F08EB0418B53AF40017667F /* FriendsView.m */; };
 		0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F20E07E18B3E87600BD439D /* RegisterView.m */; };
 		0F476D00187B837F00338F61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476CFF187B837F00338F61 /* Foundation.framework */; };
 		0F476D02187B837F00338F61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D01187B837F00338F61 /* CoreGraphics.framework */; };
@@ -51,6 +55,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F04A9F918B64925007D9F0E /* FindFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindFriendsViewController.h; sourceTree = "<group>"; };
+		0F04A9FA18B64925007D9F0E /* FindFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindFriendsViewController.m; sourceTree = "<group>"; };
+		0F04A9FC18B649B8007D9F0E /* FindFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindFriendsView.h; sourceTree = "<group>"; };
+		0F04A9FD18B649B8007D9F0E /* FindFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindFriendsView.m; sourceTree = "<group>"; };
+		0F04A9FF18B6A0EA007D9F0E /* NSString+MD5Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Hash.h"; sourceTree = "<group>"; };
+		0F04AA0018B6A0EA007D9F0E /* NSString+MD5Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Hash.m"; sourceTree = "<group>"; };
+		0F08EB0318B53AF40017667F /* FriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsView.h; sourceTree = "<group>"; };
+		0F08EB0418B53AF40017667F /* FriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsView.m; sourceTree = "<group>"; };
 		0F20E07D18B3E87600BD439D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		0F20E07E18B3E87600BD439D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		0F476CFC187B837F00338F61 /* SmartChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +245,8 @@
 				0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */,
 				0F799D4F18AAB38B0045A940 /* UIAlertView+NSError.h */,
 				0F799D5018AAB38B0045A940 /* UIAlertView+NSError.m */,
+				0F04A9FF18B6A0EA007D9F0E /* NSString+MD5Hash.h */,
+				0F04AA0018B6A0EA007D9F0E /* NSString+MD5Hash.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -246,6 +260,8 @@
 				0F97D4A818A1E4C60024A427 /* CameraViewController.m */,
 				0FD7D1A518B26EAC00EC9142 /* FriendsViewController.h */,
 				0FD7D1A618B26EAC00EC9142 /* FriendsViewController.m */,
+				0F04A9F918B64925007D9F0E /* FindFriendsViewController.h */,
+				0F04A9FA18B64925007D9F0E /* FindFriendsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +275,10 @@
 				3683E42EB2F042F2934C5E8B /* CameraView.h */,
 				0F20E07D18B3E87600BD439D /* RegisterView.h */,
 				0F20E07E18B3E87600BD439D /* RegisterView.m */,
+				0F08EB0318B53AF40017667F /* FriendsView.h */,
+				0F08EB0418B53AF40017667F /* FriendsView.m */,
+				0F04A9FC18B649B8007D9F0E /* FindFriendsView.h */,
+				0F04A9FD18B649B8007D9F0E /* FindFriendsView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -458,7 +478,11 @@
 				0F476D10187B837F00338F61 /* AppDelegate.m in Sources */,
 				0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */,
 				0F4A7991188CF16600237F24 /* HTTPClient.m in Sources */,
+				0F04A9FB18B64925007D9F0E /* FindFriendsViewController.m in Sources */,
 				0F799D5118AAB38B0045A940 /* UIAlertView+NSError.m in Sources */,
+				0F04AA0118B6A0EA007D9F0E /* NSString+MD5Hash.m in Sources */,
+				0F08EB0518B53AF40017667F /* FriendsView.m in Sources */,
+				0F04A9FE18B649B8007D9F0E /* FindFriendsView.m in Sources */,
 				0F476D0C187B837F00338F61 /* main.m in Sources */,
 				0F4A798E188B32CB00237F24 /* LoginView.m in Sources */,
 				0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */,

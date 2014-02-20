@@ -2,6 +2,7 @@
 #import "Credentials.h"
 
 #import "NSString+SHA256Digest.h"
+#import "NSString+MD5Hash.h"
 #import "NSString+KeySigning.h"
 
 #import <AFNetworking/AFNetworking.h>
@@ -182,6 +183,45 @@
                    DDLogVerbose(@"friends - responseObject:\n%@", responseObject);
                    success([responseObject HALResourceWithBaseURL:self.baseURL], friends);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   failure(operation, error);
+               }];
+}
+
+- (void)search:(YBHALLink *)link
+        emails:(NSArray *)emails
+        phones:(NSArray *)phones
+        success:(void (^)(YBHALResource *resource, NSArray *matches))success
+        failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
+{
+    NSString *absoluteURL = [[link URLWithVariables:@{}] absoluteString];
+
+    NSString *signedPath = [self signedPath:absoluteURL];
+    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
+
+    NSMutableArray *hashedEmails = [@[] mutableCopy];
+    for(NSString *email in emails){
+        [hashedEmails addObject:[[email MD5Hash] lowercaseString]];
+    }
+
+    NSMutableArray *hashedPhones = [@[] mutableCopy];
+    for(NSString *phone in phones){
+        [hashedPhones addObject:[[phone MD5Hash] lowercaseString]];
+    }
+
+    NSDictionary *parameters = @{
+                                 @"emails": hashedEmails,
+                                 @"phone_numbers": hashedPhones
+                                 };
+
+    [self.manager POST:absoluteURL
+           parameters:parameters
+               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   NSDictionary *dict = (NSDictionary *)responseObject;
+                   NSLog(@"responseObject: %@", responseObject);
+                   NSArray *friends = dict[@"_embedded"][@"friends"];
+                   success([responseObject HALResourceWithBaseURL:self.baseURL], friends);
+               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   NSLog(@"error: %@", error);
                    failure(operation, error);
                }];
 }

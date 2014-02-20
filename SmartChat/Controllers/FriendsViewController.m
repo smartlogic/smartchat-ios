@@ -1,15 +1,22 @@
 #import "FriendsViewController.h"
 
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import <HyperBek/HyperBek.h>
 
 #import "HTTPClient.h"
 
+#import "FriendsView.h"
+
+#import "FindFriendsViewController.h"
+
+#import "UIAlertView+NSError.h"
+
 @interface FriendsViewController ()
 @property (nonatomic, strong) HTTPClient *client;
 @property (nonatomic, strong) YBHALResource *resource;
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *items;
-@property (nonatomic, strong) NSMutableArray *selectedFriends;
+
+@property (nonatomic, strong) FriendsView *view;
 
 @end
 
@@ -30,35 +37,39 @@
 {
     [super viewDidLoad];
 
-    CGRect frame = CGRectMake(0, 64, 320, 640);
-    self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+    self.view.tableView.dataSource = self;
+    self.view.tableView.delegate = self;
 
-    [self.navigationController setToolbarHidden:NO animated:YES];
-    [self.view addSubview:self.tableView];
-
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
-    [self.view addSubview:toolbar];
-
-    self.sendButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(sendButtonPressed:)];
-    toolbar.items = @[self.sendButton];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(doneButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = doneButton;
 
     __weak FriendsViewController *weakSelf = self;
-    [self.client friends:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/friends"]
-                 success:^(YBHALResource *resource, NSArray *friends) {
-                     NSLog(@"friends, %@", friends);
-                     NSLog(@"success");
-                     weakSelf.items = friends;
-                     [weakSelf.tableView reloadData];
-                 } failure:^(AFHTTPRequestOperation *task, NSError *error) {
-                     NSLog(@"flailure");
-                 }];
+    [weakSelf.client friends:[weakSelf.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/friends"]
+                     success:^(YBHALResource *resource, NSArray *friends) {
+                         weakSelf.items = friends;
+                         [weakSelf.view.tableView reloadData];
+                         weakSelf.resource = resource;
+                     }
+                     failure:^(AFHTTPRequestOperation *task, NSError *error) {
+                         [[UIAlertView alertViewWithError:error] show];
+                     }];
+
+    ((FriendsView *)self.view).doneButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        NSLog(@"doneButtonPressed");
+        return [RACSignal empty];
+    }];
+}
+
+- (IBAction)doneButtonPressed:(id)sender
+{
+    FindFriendsViewController *findFriendsViewController = [[FindFriendsViewController alloc] initWithClient:self.client resource:self.resource];
+    [self.navigationController pushViewController:findFriendsViewController animated:YES];
 }
 
 - (void)loadView
 {
-    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.view = [[FriendsView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 }
 
 - (IBAction)sendButtonPressed:(id)sender
@@ -85,7 +96,7 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryNone;
     [self.recipients addObject:self.items[indexPath.row][@"id"]];
 }

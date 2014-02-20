@@ -9,6 +9,7 @@ target 'SmartChat' do
   pod 'TestFlightSDK', '~> 2.2.1'
   pod 'CocoaLumberjack', '~> 1.8.1'
   pod 'TestFlightLogger', '~> 0.0.3'
+  pod 'APAddressBook', '~> 0.0.4'
 end
 
 target 'SmartChatTests' do
