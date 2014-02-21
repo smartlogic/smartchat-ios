@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSArray *recipients;
 
 - (void)authenticate;
+- (void)registerUser;
+
 @end
 
 @implementation CameraViewController
@@ -47,6 +49,13 @@
     self.cameraView = [[CameraView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view = self.cameraView;
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 
 - (void)viewDidLoad
 {
@@ -79,22 +88,8 @@
     [RACObserve(self.cameraController, image) subscribeNext:^(UIImage *image){
         if(image){
             FriendsViewController *friendsViewController = [[FriendsViewController alloc] initWithHTTPClient:weakSelf.client resource:weakSelf.resource];
-            [self.navigationController presentViewController:friendsViewController animated:YES completion:nil];
-            [[friendsViewController rac_signalForSelector:@selector(sendButtonPressed:)] subscribeNext:^(UIBarButtonItem *sendButton) {
-
-                NSLog(@"RAC got sendButtonPressed");
-                [self.client upload:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/media"]
-                         recipients:friendsViewController.recipients
-                               file:image
-                            overlay:nil
-                                ttl:10.0f
-                            success:^(YBHALResource *resource) {
-                            }
-                            failure:^(AFHTTPRequestOperation *task, NSError *error) {
-                                NSLog(@"error: %@", error);
-                            }];
-
-            }];
+            friendsViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+            [weakSelf.navigationController pushViewController:friendsViewController animated:YES];
         }
     }];
 
