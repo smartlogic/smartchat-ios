@@ -12,6 +12,8 @@
 		0F04AA0118B6A0EA007D9F0E /* NSString+MD5Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F04AA0018B6A0EA007D9F0E /* NSString+MD5Hash.m */; };
 		0F04AA0418B6A772007D9F0E /* FoundFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F04AA0318B6A772007D9F0E /* FoundFriendCell.m */; };
 		0F08EB0518B53AF40017667F /* FriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F08EB0418B53AF40017667F /* FriendsView.m */; };
+		0F08EB0818B547080017667F /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F08EB0718B547080017667F /* Friend.m */; };
+		0F08EB0F18B55DFE0017667F /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F08EB0E18B55DFE0017667F /* FriendCell.m */; };
 		0F20B69718B6E088007DAD9B /* FoundFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F20B69618B6E088007DAD9B /* FoundFriend.m */; };
 		0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F20E07E18B3E87600BD439D /* RegisterView.m */; };
 		0F476D00187B837F00338F61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476CFF187B837F00338F61 /* Foundation.framework */; };
@@ -67,6 +69,10 @@
 		0F04AA0318B6A772007D9F0E /* FoundFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundFriendCell.m; sourceTree = "<group>"; };
 		0F08EB0318B53AF40017667F /* FriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsView.h; sourceTree = "<group>"; };
 		0F08EB0418B53AF40017667F /* FriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsView.m; sourceTree = "<group>"; };
+		0F08EB0618B547080017667F /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		0F08EB0718B547080017667F /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
+		0F08EB0D18B55DFE0017667F /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		0F08EB0E18B55DFE0017667F /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		0F20B69518B6E088007DAD9B /* FoundFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundFriend.h; sourceTree = "<group>"; };
 		0F20B69618B6E088007DAD9B /* FoundFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundFriend.m; sourceTree = "<group>"; };
 		0F20E07D18B3E87600BD439D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
@@ -238,6 +244,8 @@
 			children = (
 				0FC4318F18909247002833A6 /* Credentials.h */,
 				0FC4319018909247002833A6 /* Credentials.m */,
+				0F08EB0618B547080017667F /* Friend.h */,
+				0F08EB0718B547080017667F /* Friend.m */,
 				0F20B69518B6E088007DAD9B /* FoundFriend.h */,
 				0F20B69618B6E088007DAD9B /* FoundFriend.m */,
 			);
@@ -285,6 +293,8 @@
 				0F20E07E18B3E87600BD439D /* RegisterView.m */,
 				0F08EB0318B53AF40017667F /* FriendsView.h */,
 				0F08EB0418B53AF40017667F /* FriendsView.m */,
+				0F08EB0D18B55DFE0017667F /* FriendCell.h */,
+				0F08EB0E18B55DFE0017667F /* FriendCell.m */,
 				0F04A9FC18B649B8007D9F0E /* FindFriendsView.h */,
 				0F04A9FD18B649B8007D9F0E /* FindFriendsView.m */,
 				0F04AA0218B6A772007D9F0E /* FoundFriendCell.h */,
@@ -491,6 +501,7 @@
 				0F4A7991188CF16600237F24 /* HTTPClient.m in Sources */,
 				0F04A9FB18B64925007D9F0E /* FindFriendsViewController.m in Sources */,
 				0F799D5118AAB38B0045A940 /* UIAlertView+NSError.m in Sources */,
+				0F08EB0818B547080017667F /* Friend.m in Sources */,
 				0F04AA0118B6A0EA007D9F0E /* NSString+MD5Hash.m in Sources */,
 				0F08EB0518B53AF40017667F /* FriendsView.m in Sources */,
 				0F04A9FE18B649B8007D9F0E /* FindFriendsView.m in Sources */,
@@ -502,6 +513,7 @@
 				0FC4319118909247002833A6 /* Credentials.m in Sources */,
 				0F6789EF18AE8E9600E53192 /* CameraController.m in Sources */,
 				3683EB4CE4D349CCD729B7D1 /* CameraView.m in Sources */,
+				0F08EB0F18B55DFE0017667F /* FriendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

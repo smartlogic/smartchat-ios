@@ -6,6 +6,8 @@
 #import "HTTPClient.h"
 
 #import "FriendsView.h"
+#import "Friend.h"
+#import "FriendCell.h"
 
 #import "FindFriendsViewController.h"
 
@@ -37,6 +39,7 @@
 {
     [super viewDidLoad];
 
+    [self.view.tableView registerClass:[FriendCell class] forCellReuseIdentifier:FriendCellIdentifier];
     self.view.tableView.dataSource = self;
     self.view.tableView.delegate = self;
 
@@ -45,7 +48,7 @@
     self.navigationItem.rightBarButtonItem = doneButton;
 
     __weak FriendsViewController *weakSelf = self;
-    [weakSelf.client friends:[weakSelf.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/friends"]
+    [self.client friends:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/friends"]
                      success:^(YBHALResource *resource, NSArray *friends) {
                          weakSelf.items = friends;
                          [weakSelf.view.tableView reloadData];
@@ -59,6 +62,7 @@
         NSLog(@"doneButtonPressed");
         return [RACSignal empty];
     }];
+
 }
 
 - (IBAction)doneButtonPressed:(id)sender
@@ -81,9 +85,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FriendCell"];
-    cell.textLabel.text = self.items[indexPath.row][@"username"];
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:FriendCellIdentifier];
+    Friend *friend = self.items[indexPath.row];
+    [cell configure:friend selected:[self.recipients containsObject:@(friend.ID)]];
     return cell;
 }
 
@@ -94,11 +98,19 @@
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    [self.recipients addObject:self.items[indexPath.row][@"id"]];
+    FriendCell *cell = (FriendCell *)[tableView cellForRowAtIndexPath:indexPath];
+    Friend *friend = self.items[indexPath.row];
+    NSNumber *ID = @(friend.ID);
+
+    if([self.recipients containsObject:ID]){
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.recipients removeObject:ID];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.recipients addObject:ID];
+    }
 }
 
 @end

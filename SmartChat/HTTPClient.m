@@ -178,12 +178,15 @@
     [self.manager GET:link.URL.absoluteString
             parameters:nil
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                   // HACK/NOTE:
-                   // HyperBek does not seem to support what we are doing with the API here, so we'll parse this manually.
-                   NSDictionary *dict = (NSDictionary *)responseObject;
-                   NSArray *friends = dict[@"_embedded"][@"friends"];
                    DDLogVerbose(@"friends - responseObject:\n%@", responseObject);
-                   success([responseObject HALResourceWithBaseURL:self.baseURL], friends);
+
+                   NSMutableArray *results = [@[] mutableCopy];
+                   NSDictionary *dict = (NSDictionary *)responseObject;
+                   for (NSDictionary *friendDict in dict[@"_embedded"][@"friends"]) {
+                       Friend *friend = [[Friend alloc] initWithUsername:friendDict[@"username"] id:[friendDict[@"id"] integerValue]];
+                       [results addObject:friend];
+                   }
+                   success([responseObject HALResourceWithBaseURL:self.baseURL], results);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    failure(operation, error);
                }];
