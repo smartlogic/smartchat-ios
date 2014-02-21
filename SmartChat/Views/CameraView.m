@@ -61,7 +61,15 @@
                                                                  metrics:nil
                                                                    views:views]];
 
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[stillButton(>=80)]-|"
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.stillButton
+                                                     attribute:NSLayoutAttributeCenterX
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeCenterX
+                                                    multiplier:1.0f
+                                                      constant:0.0f]];
+
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[stillButton(80)]"
                                                                  options:NSLayoutFormatAlignAllCenterY
                                                                  metrics:nil
                                                                    views:views]];

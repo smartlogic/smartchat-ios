@@ -114,6 +114,20 @@
         NSLog(@"error: %@", error);
     }];
 
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    UIButton *friendsButton = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width - 64, bounds.size.height - 64, 44, 44)];
+    [friendsButton setTitle:@"≡" forState:UIControlStateNormal];
+    friendsButton.titleLabel.font = [UIFont boldSystemFontOfSize:32.0f];
+    [friendsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.cameraView addSubview:friendsButton];
+    [friendsButton addTarget:self action:@selector(friendsViewButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+}
+
+- (IBAction)friendsViewButtonPressed:(id)sender
+{
+            FriendsViewController *friendsViewController = [[FriendsViewController alloc] initWithHTTPClient:self.client resource:self.resource];
+            [self.navigationController pushViewController:friendsViewController animated:YES];
 }
 
 - (void)registerDeviceIfNecessary
