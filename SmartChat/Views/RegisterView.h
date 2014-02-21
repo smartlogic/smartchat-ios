@@ -9,7 +9,4 @@
 @property (nonatomic, strong) UIButton *submitButton;
 @property (nonatomic, strong) UIButton *signInButton;
 
-- (void)presentInView:(UIView *)view;
-- (void)removeFromView;
-
 @end

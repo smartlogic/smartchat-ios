@@ -41,39 +41,11 @@
     return self;
 }
 
-- (void)presentInView:(UIView *)view
-{
-    self.alpha = 0;
-    [UIView animateWithDuration:0.5f
-                          delay:0
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^{
-                         [view addSubview:self];
-                         self.alpha = 1.0f;
-                     }
-                     completion:nil];
-}
-
-- (void)removeFromView
-{
-    [UIView animateWithDuration:0.5f
-                          delay:0
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^{
-                         self.alpha = 0.0f;
-                     }
-                     completion:^(BOOL finished) {
-                         if(finished){
-                             [self removeFromSuperview];
-                         }
-                     }];
-}
-
 #pragma mark - UIView
 
 - (void)layoutSubviews
 {
-    self.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.5f];
+    self.backgroundColor = [UIColor whiteColor];
 
     NSDictionary *views = @{
                             @"superview": self,

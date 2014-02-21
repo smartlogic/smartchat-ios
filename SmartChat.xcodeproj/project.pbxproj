@@ -42,6 +42,7 @@
 		0FD7D1A718B26EAC00EC9142 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD7D1A618B26EAC00EC9142 /* FriendsViewController.m */; };
 		0FE30BAA18A746E90073BCCF /* private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0FE30BA918A746E90073BCCF /* private_key.pem */; };
 		0FE30BAF18A839940073BCCF /* CredentialsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE30BAE18A839940073BCCF /* CredentialsSpec.m */; };
+		0FE5EFDE18B7B325003075DD /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE5EFDD18B7B325003075DD /* AuthenticationViewController.m */; };
 		3683EB4CE4D349CCD729B7D1 /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3683ECE1F7F4DED0EFCAA6F0 /* CameraView.m */; };
 		C015A52866AD45D4AF7E28BB /* libPods-SmartChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 856612DFFD5D4FAEA7682AC4 /* libPods-SmartChatTests.a */; };
 		D9ED6A6E80C14B76814440BC /* libPods-SmartChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5EEE63FF2D488C8520D73C /* libPods-SmartChat.a */; };
@@ -114,6 +115,8 @@
 		0FD7D1A618B26EAC00EC9142 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		0FE30BA918A746E90073BCCF /* private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = private_key.pem; sourceTree = "<group>"; };
 		0FE30BAE18A839940073BCCF /* CredentialsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsSpec.m; sourceTree = "<group>"; };
+		0FE5EFDC18B7B325003075DD /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
+		0FE5EFDD18B7B325003075DD /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
 		3683E42EB2F042F2934C5E8B /* CameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
 		3683ECE1F7F4DED0EFCAA6F0 /* CameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraView.m; sourceTree = "<group>"; };
 		824430812FC84F6AAF455F64 /* Pods-SmartChat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartChat.xcconfig"; path = "Pods/Pods-SmartChat.xcconfig"; sourceTree = "<group>"; };
@@ -273,6 +276,8 @@
 				0FD7D1A618B26EAC00EC9142 /* FriendsViewController.m */,
 				0F04A9F918B64925007D9F0E /* FindFriendsViewController.h */,
 				0F04A9FA18B64925007D9F0E /* FindFriendsViewController.m */,
+				0FE5EFDC18B7B325003075DD /* AuthenticationViewController.h */,
+				0FE5EFDD18B7B325003075DD /* AuthenticationViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE5EFDE18B7B325003075DD /* AuthenticationViewController.m in Sources */,
 				0F04AA0418B6A772007D9F0E /* FoundFriendCell.m in Sources */,
 				0FD7D1A718B26EAC00EC9142 /* FriendsViewController.m in Sources */,
 				0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */,

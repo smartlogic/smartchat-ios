@@ -5,6 +5,7 @@
 
 #import "UIAlertView+NSError.h"
 #import "CameraView.h"
+#import "AuthenticationViewController.h"
 #import "CameraController.h"
 #import "HTTPClient.h"
 #import "Credentials.h"
@@ -22,9 +23,6 @@
 @property (nonatomic, strong) LoginView *loginView;
 @property (nonatomic, strong) RegisterView *registerView;
 @property (nonatomic, strong) NSArray *recipients;
-
-- (void)authenticate;
-- (void)registerUser;
 
 @end
 
@@ -64,26 +62,6 @@
     self.cameraController = [[CameraController alloc] initWithViewController:self camearView:self.cameraView];
     [self.cameraController setupObservers];
 
-    self.loginView = [[LoginView alloc] initWithFrame:self.view.frame];
-    [[self.loginView.submitButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
-        [self authenticate];
-    }];
-
-    self.registerView = [[RegisterView alloc] initWithFrame:self.view.frame];
-    [[self.loginView.registerButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
-        [self.loginView removeFromView];
-        [self.registerView presentInView:self.view];
-    }];
-
-    [[self.registerView.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
-        [self.registerView removeFromView];
-        [self.loginView presentInView:self.view];
-    }];
-
-    [[self.registerView.submitButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
-        [self registerUser];
-    }];
-
     __weak CameraViewController *weakSelf = self;
     [RACObserve(self.cameraController, image) subscribeNext:^(UIImage *image){
         if(image){
@@ -99,14 +77,13 @@
 
         if (self.client.authenticated) {
             [self loadRootResource];
-            NSLog(@"authenticated, loading root resource");
         } else {
-            NSLog(@"not authenticated, showing login view");
-            [self.loginView presentInView:self.view];
+            AuthenticationViewController *authenticationViewController = [[AuthenticationViewController alloc] initWithClient:self.client resource:resource];
+            [self.navigationController presentViewController:authenticationViewController animated:YES completion:nil];
         }
 
     } failure:^(AFHTTPRequestOperation *task, NSError *error) {
-        NSLog(@"error: %@", error);
+        NSLog(@"getRooTesource failed: %@", error);
     }];
 
     CGRect bounds = [UIScreen mainScreen].bounds;
@@ -133,10 +110,10 @@
                             success:^(YBHALResource *resource) {
                                 [defaults setBool:YES forKey:kDefaultsDeviceRegistered];
                                 [defaults synchronize];
-                        }
-                        failure:^(AFHTTPRequestOperation *task, NSError *error) {
-                            NSLog(@"error: %@", error);
-                        }];
+                            }
+                            failure:^(AFHTTPRequestOperation *task, NSError *error) {
+                                NSLog(@"error: %@", error);
+                            }];
     }
 }
 
@@ -146,15 +123,18 @@
     NSLog(@"CameraViewController#didReceiveMemoryWarning");
 }
 
+- (void)loadRootResource:(YBHALResource *)resource
+{
+    self.resource = resource;
+    [self loadRootResource];
+}
+
 - (void)loadRootResource
 {
     __weak CameraViewController *weakSelf = self;
     [self.client getRootResource:^(YBHALResource *resource) {
         weakSelf.resource = resource;
         [weakSelf registerDeviceIfNecessary];
-        if(weakSelf.loginView.alpha > 0){
-            [weakSelf.loginView removeFromView];
-        }
     } failure:^(AFHTTPRequestOperation *task, NSError *error) {
         [[UIAlertView alertViewWithError:error] show];
         NSLog(@"error: %@", error);
@@ -162,65 +142,5 @@
 
 }
 
-- (void)authenticate
-{
-    NSString *username = self.loginView.username;
-    NSString *password = self.loginView.password;
-
-    __weak CameraViewController *weakSelf = self;
-    [self.client authenticate:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/user-sign-in"]
-                     username:username
-                     password:password
-                      success:^(YBHALResource *resource, NSString *privateKey){
-                          [weakSelf.loginView removeFromView];
-
-                          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                          [defaults setObject:username forKey:kDefaultsUsername];
-                          [defaults setObject:password forKey:kDefaultsPassword];
-                          [defaults setObject:privateKey forKey:kDefaultsPrivateKey];
-                          [defaults synchronize];
-
-                          Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
-                          HTTPClient *client = [HTTPClient clientWithClient:weakSelf.client credentials:credentials];
-                          weakSelf.client = client;
-
-                          [weakSelf loadRootResource];
-                      }
-                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                          [[UIAlertView alertViewWithError:error] show];
-                          NSLog(@"error: %@", error);
-                      }];
-}
-
-- (void)registerUser
-{
-    NSString *username = self.registerView.username;
-    NSString *password = self.registerView.password;
-    NSString *email = self.registerView.email;
-
-    __weak CameraViewController *weakSelf = self;
-    [self.client registerUser:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/users"]
-                     username:username
-                     password:password
-                        email:email
-                      success:^(YBHALResource *resource, NSString *privateKey){
-                          [weakSelf.registerView removeFromView];
-
-                          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                          [defaults setObject:username forKey:kDefaultsUsername];
-                          [defaults setObject:password forKey:kDefaultsPassword];
-                          [defaults setObject:privateKey forKey:kDefaultsPrivateKey];
-                          [defaults synchronize];
-
-                          Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
-                          HTTPClient *client = [HTTPClient clientWithClient:weakSelf.client credentials:credentials];
-                          weakSelf.client = client;
-                          [weakSelf loadRootResource];
-                      }
-                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                          [[UIAlertView alertViewWithError:error] show];
-                          NSLog(@"error: %@", error);
-                      }];
-}
 
 @end

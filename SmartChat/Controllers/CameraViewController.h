@@ -6,5 +6,6 @@
 @interface CameraViewController : UIViewController
 
 - (id)initWithHTTPClient:(HTTPClient *)client;
+- (void)loadRootResource:(YBHALResource *)resource;
 
 @end
