@@ -41,6 +41,9 @@
         phones:(NSArray *)phones
        success:(void (^)(YBHALResource *resource, NSArray *matches))success
        failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+- (void)addFriend:(YBHALLink *)link
+          success:(void (^)(YBHALResource *resource))success
+          failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 
 - (NSString *)signedPath:(NSString *)path;
 

@@ -94,7 +94,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FoundFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:FoundFriendCellIdentifier];
-    [cell configure:self.items[indexPath.row]];
+    [cell configure:self.items[indexPath.row] client:self.client];
     return cell;
 }
 

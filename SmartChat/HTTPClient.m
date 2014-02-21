@@ -243,7 +243,25 @@
                }];
 }
 
+- (void)addFriend:(YBHALLink *)link
+          success:(void (^)(YBHALResource *resource))success
+          failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
+{
+    NSString *absoluteURL = [link.URL absoluteString];
+    NSString *signedPath = [self signedPath:absoluteURL];
 
+    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
+
+    [self.manager POST:absoluteURL
+           parameters:nil
+               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  DDLogVerbose(@"search - responseObject:\n%@", responseObject);
+                   success([responseObject HALResourceWithBaseURL:self.baseURL]);
+               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   DDLogError(@"search - error: %@", error);
+                   failure(operation, error);
+               }];
+}
 
 - (NSString *)passphrase
 {

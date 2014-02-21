@@ -14,7 +14,6 @@
 		0F08EB0518B53AF40017667F /* FriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F08EB0418B53AF40017667F /* FriendsView.m */; };
 		0F08EB0818B547080017667F /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F08EB0718B547080017667F /* Friend.m */; };
 		0F08EB0F18B55DFE0017667F /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F08EB0E18B55DFE0017667F /* FriendCell.m */; };
-		0F20B69718B6E088007DAD9B /* FoundFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F20B69618B6E088007DAD9B /* FoundFriend.m */; };
 		0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F20E07E18B3E87600BD439D /* RegisterView.m */; };
 		0F476D00187B837F00338F61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476CFF187B837F00338F61 /* Foundation.framework */; };
 		0F476D02187B837F00338F61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D01187B837F00338F61 /* CoreGraphics.framework */; };
@@ -73,8 +72,6 @@
 		0F08EB0718B547080017667F /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 		0F08EB0D18B55DFE0017667F /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		0F08EB0E18B55DFE0017667F /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
-		0F20B69518B6E088007DAD9B /* FoundFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundFriend.h; sourceTree = "<group>"; };
-		0F20B69618B6E088007DAD9B /* FoundFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundFriend.m; sourceTree = "<group>"; };
 		0F20E07D18B3E87600BD439D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		0F20E07E18B3E87600BD439D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		0F476CFC187B837F00338F61 /* SmartChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,8 +243,6 @@
 				0FC4319018909247002833A6 /* Credentials.m */,
 				0F08EB0618B547080017667F /* Friend.h */,
 				0F08EB0718B547080017667F /* Friend.m */,
-				0F20B69518B6E088007DAD9B /* FoundFriend.h */,
-				0F20B69618B6E088007DAD9B /* FoundFriend.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -508,7 +503,6 @@
 				0F476D0C187B837F00338F61 /* main.m in Sources */,
 				0F4A798E188B32CB00237F24 /* LoginView.m in Sources */,
 				0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */,
-				0F20B69718B6E088007DAD9B /* FoundFriend.m in Sources */,
 				0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */,
 				0FC4319118909247002833A6 /* Credentials.m in Sources */,
 				0F6789EF18AE8E9600E53192 /* CameraController.m in Sources */,
