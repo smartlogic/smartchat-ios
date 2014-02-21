@@ -10,7 +10,9 @@
 		0F04A9FB18B64925007D9F0E /* FindFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F04A9FA18B64925007D9F0E /* FindFriendsViewController.m */; };
 		0F04A9FE18B649B8007D9F0E /* FindFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F04A9FD18B649B8007D9F0E /* FindFriendsView.m */; };
 		0F04AA0118B6A0EA007D9F0E /* NSString+MD5Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F04AA0018B6A0EA007D9F0E /* NSString+MD5Hash.m */; };
+		0F04AA0418B6A772007D9F0E /* FoundFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F04AA0318B6A772007D9F0E /* FoundFriendCell.m */; };
 		0F08EB0518B53AF40017667F /* FriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F08EB0418B53AF40017667F /* FriendsView.m */; };
+		0F20B69718B6E088007DAD9B /* FoundFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F20B69618B6E088007DAD9B /* FoundFriend.m */; };
 		0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F20E07E18B3E87600BD439D /* RegisterView.m */; };
 		0F476D00187B837F00338F61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476CFF187B837F00338F61 /* Foundation.framework */; };
 		0F476D02187B837F00338F61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D01187B837F00338F61 /* CoreGraphics.framework */; };
@@ -61,8 +63,12 @@
 		0F04A9FD18B649B8007D9F0E /* FindFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindFriendsView.m; sourceTree = "<group>"; };
 		0F04A9FF18B6A0EA007D9F0E /* NSString+MD5Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Hash.h"; sourceTree = "<group>"; };
 		0F04AA0018B6A0EA007D9F0E /* NSString+MD5Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Hash.m"; sourceTree = "<group>"; };
+		0F04AA0218B6A772007D9F0E /* FoundFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundFriendCell.h; sourceTree = "<group>"; };
+		0F04AA0318B6A772007D9F0E /* FoundFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundFriendCell.m; sourceTree = "<group>"; };
 		0F08EB0318B53AF40017667F /* FriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsView.h; sourceTree = "<group>"; };
 		0F08EB0418B53AF40017667F /* FriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsView.m; sourceTree = "<group>"; };
+		0F20B69518B6E088007DAD9B /* FoundFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundFriend.h; sourceTree = "<group>"; };
+		0F20B69618B6E088007DAD9B /* FoundFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundFriend.m; sourceTree = "<group>"; };
 		0F20E07D18B3E87600BD439D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		0F20E07E18B3E87600BD439D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		0F476CFC187B837F00338F61 /* SmartChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +238,8 @@
 			children = (
 				0FC4318F18909247002833A6 /* Credentials.h */,
 				0FC4319018909247002833A6 /* Credentials.m */,
+				0F20B69518B6E088007DAD9B /* FoundFriend.h */,
+				0F20B69618B6E088007DAD9B /* FoundFriend.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +287,8 @@
 				0F08EB0418B53AF40017667F /* FriendsView.m */,
 				0F04A9FC18B649B8007D9F0E /* FindFriendsView.h */,
 				0F04A9FD18B649B8007D9F0E /* FindFriendsView.m */,
+				0F04AA0218B6A772007D9F0E /* FoundFriendCell.h */,
+				0F04AA0318B6A772007D9F0E /* FoundFriendCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -473,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F04AA0418B6A772007D9F0E /* FoundFriendCell.m in Sources */,
 				0FD7D1A718B26EAC00EC9142 /* FriendsViewController.m in Sources */,
 				0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */,
 				0F476D10187B837F00338F61 /* AppDelegate.m in Sources */,
@@ -486,6 +497,7 @@
 				0F476D0C187B837F00338F61 /* main.m in Sources */,
 				0F4A798E188B32CB00237F24 /* LoginView.m in Sources */,
 				0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */,
+				0F20B69718B6E088007DAD9B /* FoundFriend.m in Sources */,
 				0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */,
 				0FC4319118909247002833A6 /* Credentials.m in Sources */,
 				0F6789EF18AE8E9600E53192 /* CameraController.m in Sources */,

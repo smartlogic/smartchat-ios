@@ -5,6 +5,8 @@
 #import "NSString+MD5Hash.h"
 #import "NSString+KeySigning.h"
 
+#import "FoundFriend.h"
+
 #import <AFNetworking/AFNetworking.h>
 #import <HyperBek/HyperBek.h>
 
@@ -216,10 +218,15 @@
     [self.manager POST:absoluteURL
            parameters:parameters
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                   NSDictionary *dict = (NSDictionary *)responseObject;
                    NSLog(@"responseObject: %@", responseObject);
-                   NSArray *friends = dict[@"_embedded"][@"friends"];
-                   success([responseObject HALResourceWithBaseURL:self.baseURL], friends);
+
+                   NSMutableArray *results = [@[] mutableCopy];
+                   NSDictionary *dict = (NSDictionary *)responseObject;
+                   for (NSDictionary *friend in dict[@"_embedded"][@"friends"]) {
+                       [results addObject:[friend HALResourceWithBaseURL:self.baseURL]];
+                   }
+
+                   success([responseObject HALResourceWithBaseURL:self.baseURL], results);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    NSLog(@"error: %@", error);
                    failure(operation, error);
