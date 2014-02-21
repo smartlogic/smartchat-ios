@@ -88,6 +88,10 @@
                    DDLogVerbose(@"authenticate - responseObject:\n%@", responseObject);
                    YBHALResource *resource = [responseObject HALResourceWithBaseURL:self.baseURL];
                    NSString *privateKey = [resource objectForKeyedSubscript:@"private_key"];
+                   self.credentials.username = username;
+                   self.credentials.password = password;
+                   self.credentials.privateKey = privateKey;
+
                    success(resource, privateKey);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    DDLogError(@"authenticate - error: %@", error);
@@ -115,6 +119,10 @@
                    DDLogVerbose(@"registerUser - responseObject:\n%@", responseObject);
                    YBHALResource *resource = [responseObject HALResourceWithBaseURL:self.baseURL];
                    NSString *privateKey = [resource objectForKeyedSubscript:@"private_key"];
+                   self.credentials.username = username;
+                   self.credentials.password = password;
+                   self.credentials.privateKey = privateKey;
+
                    success(resource, privateKey);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    DDLogError(@"registerUser - error: %@", error);
