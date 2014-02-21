@@ -1,14 +1,15 @@
 #import "HTTPClient.h"
+
+#import <AFNetworking/AFNetworking.h>
+#import <HyperBek/HyperBek.h>
+
 #import "Credentials.h"
+#import "FoundFriend.h"
+#import "Friend.h"
 
 #import "NSString+SHA256Digest.h"
 #import "NSString+MD5Hash.h"
 #import "NSString+KeySigning.h"
-
-#import "FoundFriend.h"
-
-#import <AFNetworking/AFNetworking.h>
-#import <HyperBek/HyperBek.h>
 
 @interface HTTPClient ()
 @property (nonatomic, strong) Credentials *credentials;
