@@ -23,7 +23,7 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
-    HTTPClient *client = [[HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://smartchat.smartlogic.io/"] credentials:credentials];
+    HTTPClient *client = [[HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://smartchat.smartlogic.io/"] credentials:credentials];
 
     CameraViewController *captureViewController = [[CameraViewController alloc] initWithHTTPClient:client];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:captureViewController];
