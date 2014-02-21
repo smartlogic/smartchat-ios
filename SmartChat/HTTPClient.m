@@ -67,6 +67,7 @@
                   DDLogVerbose(@"getRootResource - responseObject:\n%@", responseObject);
                   success([responseObject HALResourceWithBaseURL:self.baseURL]);
               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   DDLogError(@"getRootResource - error: %@", error);
                   failure(operation, error);
               }];
 }
@@ -89,6 +90,7 @@
                    NSString *privateKey = [resource objectForKeyedSubscript:@"private_key"];
                    success(resource, privateKey);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   DDLogError(@"authenticate - error: %@", error);
                    failure(operation, error);
                }];
 }
@@ -115,6 +117,7 @@
                    NSString *privateKey = [resource objectForKeyedSubscript:@"private_key"];
                    success(resource, privateKey);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   DDLogError(@"registerUser - error: %@", error);
                    failure(operation, error);
                }];
 }
@@ -144,6 +147,7 @@
                    DDLogVerbose(@"upload - responseObject:\n%@", responseObject);
                    success([responseObject HALResourceWithBaseURL:self.baseURL]);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   DDLogError(@"upload - error: %@", error);
                    failure(operation, error);
                }];
 }
@@ -165,6 +169,7 @@
                    DDLogVerbose(@"registerDevice - responseObject:\n%@", responseObject);
                    success([responseObject HALResourceWithBaseURL:self.baseURL]);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   DDLogError(@"registerDevice - error: %@", error);
                    failure(operation, error);
                }];
 }
@@ -189,6 +194,7 @@
                    }
                    success([responseObject HALResourceWithBaseURL:self.baseURL], results);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   DDLogError(@"friends - error: %@", error);
                    failure(operation, error);
                }];
 }
@@ -222,7 +228,7 @@
     [self.manager POST:absoluteURL
            parameters:parameters
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                   NSLog(@"responseObject: %@", responseObject);
+                  DDLogVerbose(@"search - responseObject:\n%@", responseObject);
 
                    NSMutableArray *results = [@[] mutableCopy];
                    NSDictionary *dict = (NSDictionary *)responseObject;
@@ -232,7 +238,7 @@
 
                    success([responseObject HALResourceWithBaseURL:self.baseURL], results);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                   NSLog(@"error: %@", error);
+                   DDLogError(@"search - error: %@", error);
                    failure(operation, error);
                }];
 }
