@@ -8,10 +8,14 @@
 #import "FindFriendsView.h"
 #import "UIAlertView+NSError.h"
 
+#import "FoundFriendCell.h"
+
 @interface FindFriendsViewController ()
 
 @property (nonatomic, strong) HTTPClient *client;
 @property (nonatomic, strong) YBHALResource *resource;
+@property (nonatomic, strong) NSArray *items;
+
 @end
 
 @implementation FindFriendsViewController
@@ -22,6 +26,7 @@
     if(self){
         self.client = client;
         self.resource = resource;
+        self.items = @[];
     }
     return self;
 }
@@ -29,6 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [((FindFriendsView *)self.view).tableView registerClass:[FoundFriendCell class] forCellReuseIdentifier:FoundFriendCellIdentifier];
+
+    ((FindFriendsView *)self.view).tableView.dataSource = self;
+    ((FindFriendsView *)self.view).tableView.delegate = self;
 
     ((FindFriendsView *)self.view).searchBar.delegate = self;
     [((FindFriendsView *)self.view).searchBar becomeFirstResponder];
@@ -71,18 +81,26 @@
                  emails:@[searchBar.text]
                  phones:@[searchBar.text]
                 success:^(YBHALResource *resource, NSArray *matches) {
-                    NSLog(@"matches: %@", matches);
+                    self.items = matches;
+                    [((FindFriendsView *)self.view).tableView reloadData];
                 }
                 failure:^(AFHTTPRequestOperation *task, NSError *error) {
-                    NSLog(@"error: %@", error);
+                    [[UIAlertView alertViewWithError:error] show];
                 }];
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
+#pragma mark - UITableViewDataSource
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FoundFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:FoundFriendCellIdentifier];
+    [cell configure:self.items[indexPath.row]];
+    return cell;
 }
 
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.items.count;
+}
 
 @end
