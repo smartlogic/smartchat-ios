@@ -2,6 +2,8 @@
 
 #import <HyperBek/HyperBek.h>
 
+NSString *const FoundFriendCellIdentifier = @"FoundFriendCellIdentifier";
+
 @interface FoundFriendCell ()
 
 @property (nonatomic, strong) YBHALLink *link;
