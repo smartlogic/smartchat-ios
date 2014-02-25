@@ -44,6 +44,12 @@
 - (void)addFriend:(YBHALLink *)link
           success:(void (^)(YBHALResource *resource))success
           failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+- (void)media:(YBHALLink *)link
+      success:(void (^)(YBHALResource *resource, NSArray *chats))success
+      failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+- (void)file:(YBHALLink *)link
+     success:(void (^)(NSData *fileData))success
+     failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 
 - (NSString *)signedPath:(NSString *)path;
 

@@ -9,6 +9,7 @@
 #import "CameraController.h"
 #import "HTTPClient.h"
 #import "Credentials.h"
+#import "ChatsViewController.h"
 #import "LoginView.h"
 #import "RegisterView.h"
 
@@ -94,12 +95,25 @@
     [self.cameraView addSubview:friendsButton];
     [friendsButton addTarget:self action:@selector(friendsViewButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
+    UIButton *chatsButton = [[UIButton alloc] initWithFrame:CGRectMake(20, bounds.size.height - 64, 44, 44)];
+    [chatsButton setTitle:@"≡" forState:UIControlStateNormal];
+    chatsButton.titleLabel.font = [UIFont boldSystemFontOfSize:32.0f];
+    [chatsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.cameraView addSubview:chatsButton];
+    [chatsButton addTarget:self action:@selector(chatsViewButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
 - (IBAction)friendsViewButtonPressed:(id)sender
 {
             FriendsViewController *friendsViewController = [[FriendsViewController alloc] initWithHTTPClient:self.client resource:self.resource];
             [self.navigationController pushViewController:friendsViewController animated:YES];
+}
+
+- (IBAction)chatsViewButtonPressed:(id)sender
+{
+    ChatsViewController *chatsViewController = [[ChatsViewController alloc] initWithClient:self.client resource:self.resource];
+    [self.navigationController pushViewController:chatsViewController animated:YES];
 }
 
 - (void)registerDeviceIfNecessary

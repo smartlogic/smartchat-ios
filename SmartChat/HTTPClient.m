@@ -271,6 +271,66 @@
                }];
 }
 
+- (void)media:(YBHALLink *)link
+      success:(void (^)(YBHALResource *resource, NSArray *chats))success
+      failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
+{
+    NSString *absoluteURL = [link.URL absoluteString];
+    NSString *signedPath = [self signedPath:absoluteURL];
+
+    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
+
+    [self.manager GET:absoluteURL
+           parameters:nil
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  DDLogVerbose(@"search - responseObject:\n%@", responseObject);
+
+                   NSMutableArray *results = [@[] mutableCopy];
+                   NSDictionary *dict = (NSDictionary *)responseObject;
+                   for (NSDictionary *friend in dict[@"_embedded"][@"media"]) {
+                       [results addObject:[friend HALResourceWithBaseURL:self.baseURL]];
+                   }
+
+                  success([responseObject HALResourceWithBaseURL:self.baseURL], results);
+              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  DDLogError(@"search - error: %@", error);
+                  failure(operation, error);
+              }];
+}
+
+- (void)file:(YBHALLink *)link
+     success:(void (^)(NSData *fileData))success
+     failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
+{
+    NSString *absoluteURL = [link.URL absoluteString];
+    NSString *signedPath = [self signedPath:absoluteURL];
+
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+
+    NSURL *URL = [NSURL URLWithString:absoluteURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSURL *documentsDirectoryPath = [NSURL fileURLWithPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]];
+        return [documentsDirectoryPath URLByAppendingPathComponent:[response suggestedFilename]];
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSLog(@"File downloaded to: %@", filePath);
+    }];
+
+    NSString *username = [self.credentials.username copy];
+    [manager setSessionDidReceiveAuthenticationChallengeBlock:^NSURLSessionAuthChallengeDisposition (NSURLSession *session, NSURLAuthenticationChallenge *challenge, NSURLCredential * __autoreleasing *credential) {
+        *credential = [NSURLCredential credentialWithUser:username
+                                                 password:signedPath
+                                              persistence:NSURLCredentialPersistenceForSession];
+        [challenge.sender useCredential:*credential forAuthenticationChallenge:challenge];
+
+        return NSURLSessionAuthChallengePerformDefaultHandling;
+    }];
+
+    [downloadTask resume];
+}
+
 - (NSString *)passphrase
 {
     NSString *passphrase = [self.credentials.password copy];
