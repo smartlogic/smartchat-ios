@@ -140,15 +140,20 @@
 {
     NSString *signedPath = [self signedPath:link.URL.absoluteString];
     [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
-    
+
+    CGRect rect = [UIScreen mainScreen].bounds;
+    UIGraphicsBeginImageContext(rect.size);
+    [file drawInRect:rect];
+    UIImage *resizedFile = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
     NSDictionary *parameters = @{
                                  @"media": @{
                                          @"friend_ids": recipients,
                                          @"file_name": @"smarch.png",
-                                         @"file": [UIImagePNGRepresentation(file) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]
+                                         @"file": [UIImagePNGRepresentation(resizedFile) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]
                                          }
                                  };
-    
     [self.manager POST:link.URL.absoluteString
             parameters:parameters
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
