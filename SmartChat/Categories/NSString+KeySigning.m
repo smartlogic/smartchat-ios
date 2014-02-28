@@ -2,9 +2,6 @@
 
 #import <OpenSSL/des.h>
 #import <OpenSSL/pem.h>
-#import <OpenSSL/aes.h>
-#import <OpenSSL/rsa.h>
-#import <OpenSSL/err.h>
 
 @implementation NSString (KeySigning)
 
