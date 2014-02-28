@@ -95,6 +95,13 @@
                       }
                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                           [[UIAlertView alertViewWithError:error] show];
+
+                          NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                          [defaults removeObjectForKey:kDefaultsUsername];
+                          [defaults removeObjectForKey:kDefaultsPassword];
+                          [defaults removeObjectForKey:kDefaultsPrivateKey];
+                          [defaults synchronize];
+
                           NSLog(@"error: %@", error);
                       }];
 }
