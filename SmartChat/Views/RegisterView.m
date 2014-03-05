@@ -20,7 +20,8 @@
         self.emailField.translatesAutoresizingMaskIntoConstraints = NO;
         self.emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.emailField.borderStyle = UITextBorderStyleRoundedRect;
-        self.emailField.placeholder = @"Email Address";
+        self.emailField.placeholder = NSLocalizedString(@"authentication: email", nil);
+        self.emailField.accessibilityLabel = NSLocalizedString(@"authentication: email", nil);
         self.emailField.keyboardType = UIKeyboardTypeEmailAddress;
         self.emailField.spellCheckingType = UITextSpellCheckingTypeNo;
 
@@ -28,7 +29,8 @@
         self.usernameField.translatesAutoresizingMaskIntoConstraints = NO;
         self.usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.usernameField.borderStyle = UITextBorderStyleRoundedRect;
-        self.usernameField.placeholder = @"Username";
+        self.usernameField.placeholder = NSLocalizedString(@"authentication: username", nil);
+        self.usernameField.accessibilityLabel = NSLocalizedString(@"authentication: username", nil);
         self.usernameField.keyboardType = UIKeyboardTypeAlphabet;
         self.usernameField.spellCheckingType = UITextSpellCheckingTypeNo;
 
@@ -36,26 +38,28 @@
         self.passwordField.translatesAutoresizingMaskIntoConstraints = NO;
         self.passwordField.secureTextEntry = YES;
         self.passwordField.borderStyle = UITextBorderStyleRoundedRect;
-        self.passwordField.placeholder = @"Password";
+        self.passwordField.placeholder = NSLocalizedString(@"authentication: password", nil);
+        self.passwordField.accessibilityLabel = NSLocalizedString(@"authentication: password", nil);
         self.passwordField.keyboardType = UIKeyboardTypeAlphabet;
 
         self.passwordConfirmationField = [[UITextField alloc] init];
         self.passwordConfirmationField.translatesAutoresizingMaskIntoConstraints = NO;
         self.passwordConfirmationField.secureTextEntry = YES;
         self.passwordConfirmationField.borderStyle = UITextBorderStyleRoundedRect;
-        self.passwordConfirmationField.placeholder = @"Confirm Password";
+        self.passwordConfirmationField.placeholder = NSLocalizedString(@"authentication: confirm password", nil);
+        self.passwordConfirmationField.accessibilityLabel = NSLocalizedString(@"authentication: confirm password", nil);
         self.passwordConfirmationField.keyboardType = UIKeyboardTypeAlphabet;
 
         self.submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
         self.submitButton.backgroundColor = [UIColor colorWithRed:119/255.0f green:205/255.0f blue:117/255.0f alpha:1.0f];
-        [self.submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+        [self.submitButton setTitle:NSLocalizedString(@"authentication: submit", nil) forState:UIControlStateNormal];
         [self.submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
         self.signInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.signInButton.translatesAutoresizingMaskIntoConstraints = NO;
         self.signInButton.backgroundColor = [UIColor colorWithRed:150/255.0f green:150/255.0f blue:150/255.0f alpha:1.0f];
-        [self.signInButton setTitle:@"Sign In" forState:UIControlStateNormal];
+        [self.signInButton setTitle:NSLocalizedString(@"authentication: login", nil) forState:UIControlStateNormal];
         [self.signInButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     return self;
