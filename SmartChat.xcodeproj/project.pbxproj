@@ -40,6 +40,7 @@
 		0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */; };
 		0F81B24A18A553E200CD4FEC /* NSStringKeySigningSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */; };
 		0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4A818A1E4C60024A427 /* CameraViewController.m */; };
+		0FB39C2418C7B61500CECBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FB39C2218C7B61500CECBE4 /* Localizable.strings */; };
 		0FC4319118909247002833A6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4319018909247002833A6 /* Credentials.m */; };
 		0FD7005418A4239100A0A821 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7005318A4239100A0A821 /* Security.framework */; };
 		0FD7D1A718B26EAC00EC9142 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD7D1A618B26EAC00EC9142 /* FriendsViewController.m */; };
@@ -223,6 +224,7 @@
 		0F476D06187B837F00338F61 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0FB39C2218C7B61500CECBE4 /* Localizable.strings */,
 				0F476D07187B837F00338F61 /* SmartChat-Info.plist */,
 				0F476D08187B837F00338F61 /* InfoPlist.strings */,
 				0F476D0B187B837F00338F61 /* main.m */,
