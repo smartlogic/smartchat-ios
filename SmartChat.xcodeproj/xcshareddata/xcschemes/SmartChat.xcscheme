@@ -38,6 +38,16 @@
                ReferencedContainer = "container:SmartChat.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0FA605F318C4F58A0024EE04"
+               BuildableName = "SmartChatAcceptance.xctest"
+               BlueprintName = "SmartChatAcceptance"
+               ReferencedContainer = "container:SmartChat.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

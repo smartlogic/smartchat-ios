@@ -27,6 +27,10 @@ PODS:
   - CSURITemplate (0.1.1)
   - HyperBek (0.4.0):
     - CSURITemplate (~> 0.1.1)
+  - KIF (2.0.0)
+  - Kiwi-KIF/XCTest (1.0.1):
+    - KIF (~> 2.0.0)
+    - Kiwi/XCTest (~> 2.2.3)
   - Kiwi/ARC (2.2.3)
   - Kiwi/NonARC (2.2.3)
   - Kiwi/XCTest (2.2.3):
@@ -50,6 +54,8 @@ DEPENDENCIES:
   - CocoaLumberjack (~> 1.8.1)
   - CommonCrypto (~> 1.1)
   - HyperBek (from `https://bitbucket.org/dcutting/hyperbek`)
+  - KIF (~> 2.0)
+  - Kiwi-KIF/XCTest (~> 1.0.1)
   - Kiwi/XCTest (~> 2.2.3)
   - OpenSSL (~> 1.0.1)
   - ReactiveCocoa (~> 2.2.3)
@@ -67,7 +73,9 @@ SPEC CHECKSUMS:
   CommonCrypto: 8996386fc0dcd3713ce39ea5efb4afadb9fa00e2
   CSURITemplate: d3ec6da88799010195522e0c20e049a18da6a6aa
   HyperBek: efd20b8674cffcd623b5bc2ace6f70cea56bba25
+  KIF: ff3b46deb62ce3f8e99c6a2c786729e1eea241ba
   Kiwi: 04c51e880831d291748ec702d42c4101f7eb95c9
+  Kiwi-KIF: b5391f7f57e91f43fdb2d4227d64277a67cf9e09
   OpenSSL: 9b85178853701b1e9bbf70df695a4c149799e772
   ReactiveCocoa: b3cb6ebd50f1a0f2e39c6fd7ce3c428b6efcb22b
   TestFlightLogger: 030f80932b79a0fc9414115a63c209bc62bb8f98

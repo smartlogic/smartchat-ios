@@ -16,3 +16,8 @@ target 'SmartChatTests' do
   pod 'Kiwi/XCTest', '~> 2.2.3'
 end
 
+target 'SmartChatAcceptance' do
+  pod 'Kiwi/XCTest', '~> 2.2.3'
+  pod 'Kiwi-KIF/XCTest', '~>1.0.1'
+  pod 'KIF', '~> 2.0'
+end
