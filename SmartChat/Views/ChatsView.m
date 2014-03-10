@@ -16,8 +16,6 @@
 
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
 
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-
     NSDictionary *views = @{
                             @"superview": self,
                             @"tableView": self.tableView

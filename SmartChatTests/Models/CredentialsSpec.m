@@ -24,7 +24,6 @@ describe(@"Credentials", ^{
         [[credentials.privateKey should] equal:@"example privateKey"];
     });
     
-
     context(@"authenticated status", ^{
 
         NSUserDefaults *defaults = [[NSUserDefaults alloc] init];

@@ -1,8 +1,8 @@
 #import "CameraController.h"
 
-#import "CameraView.h"
-
 #import <ReactiveCocoa/ReactiveCocoa.h>
+
+#import "CameraView.h"
 
 static void *CapturingStillImageContext = &CapturingStillImageContext;
 static void *RecordingContext = &RecordingContext;
@@ -41,7 +41,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [self dispatchInSessionQueue:^{
         [RACObserve(self.captureStillImageOutput, capturingStillImage) subscribeNext:^(NSNumber *capturingStillImage){
             if([capturingStillImage boolValue]){
-                NSLog(@"capturingStillImage observer is true");
                 [self runStillImageCaptureAnimation];
             }
         }];

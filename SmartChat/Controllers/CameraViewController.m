@@ -3,17 +3,17 @@
 #import <HyperBek/HyperBek.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-#import "UIAlertView+NSError.h"
-#import "CameraView.h"
 #import "AuthenticationViewController.h"
 #import "CameraController.h"
-#import "HTTPClient.h"
+#import "CameraView.h"
 #import "Credentials.h"
+#import "FriendsViewController.h"
 #import "ChatsViewController.h"
+#import "HTTPClient.h"
 #import "LoginView.h"
 #import "RegisterView.h"
 
-#import "FriendsViewController.h"
+#import "UIAlertView+NSError.h"
 
 @interface CameraViewController ()
 @property (nonatomic, strong) HTTPClient *client;
@@ -88,6 +88,7 @@
     }];
 
     CGRect bounds = [UIScreen mainScreen].bounds;
+
     UIButton *friendsButton = [[UIButton alloc] initWithFrame:CGRectMake(bounds.size.width - 64, bounds.size.height - 64, 44, 44)];
     [friendsButton setTitle:@"≡" forState:UIControlStateNormal];
     friendsButton.titleLabel.font = [UIFont boldSystemFontOfSize:32.0f];
@@ -106,14 +107,15 @@
 
 - (IBAction)friendsViewButtonPressed:(id)sender
 {
-            FriendsViewController *friendsViewController = [[FriendsViewController alloc] initWithHTTPClient:self.client resource:self.resource];
-            [self.navigationController pushViewController:friendsViewController animated:YES];
+    FriendsViewController *friendsViewController = [[FriendsViewController alloc] initWithHTTPClient:self.client resource:self.resource];
+    [self.navigationController pushViewController:friendsViewController animated:YES];
 }
 
 - (IBAction)chatsViewButtonPressed:(id)sender
 {
     ChatsViewController *chatsViewController = [[ChatsViewController alloc] initWithClient:self.client resource:self.resource];
     [self.navigationController pushViewController:chatsViewController animated:YES];
+    
 }
 
 - (void)registerDeviceIfNecessary

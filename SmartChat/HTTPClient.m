@@ -4,7 +4,6 @@
 #import <HyperBek/HyperBek.h>
 
 #import "Credentials.h"
-#import "FoundFriend.h"
 #import "Friend.h"
 
 #import "NSString+SHA256Digest.h"
@@ -61,7 +60,7 @@
         NSString *signedPath = [self signedPath:self.baseURL.absoluteString];
         [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
     }
-    
+
     [self.manager GET:self.baseURL.absoluteString parameters:nil
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   DDLogVerbose(@"getRootResource - responseObject:\n%@", responseObject);
