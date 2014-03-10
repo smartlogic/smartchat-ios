@@ -8,6 +8,10 @@ An ephemeral multimedia messaging system.
 Setup
 =====
 
-You'll need a SmartChat API, for the iOS specific side of things just run:
+You'll need a SmartChat API (a local setup or https://smartchat.smartlogic.io/).
 
-```pod install```
+This project uses CocoaPods, use:
+
+```
+pod install
+```
