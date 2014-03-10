@@ -28,6 +28,7 @@
 		0F476D1B187B837F00338F61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D03187B837F00338F61 /* UIKit.framework */; };
 		0F476D23187B837F00338F61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F476D21187B837F00338F61 /* InfoPlist.strings */; };
 		0F49388F18BCE73400EEEB59 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F49388E18BCE73400EEEB59 /* ChatCell.m */; };
+		0F49389518BD117B00EEEB59 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F49389418BD117B00EEEB59 /* ChatViewController.m */; };
 		0F4A798E188B32CB00237F24 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A798D188B32CB00237F24 /* LoginView.m */; };
 		0F4A7991188CF16600237F24 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A7990188CF16600237F24 /* HTTPClient.m */; };
 		0F4A7996188DEA6C00237F24 /* HTTPClientSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A7995188DEA6C00237F24 /* HTTPClientSpec.m */; };
@@ -100,6 +101,8 @@
 		0F476D22187B837F00338F61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0F49388D18BCE73400EEEB59 /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		0F49388E18BCE73400EEEB59 /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		0F49389318BD117B00EEEB59 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		0F49389418BD117B00EEEB59 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		0F4A798C188B32CB00237F24 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		0F4A798D188B32CB00237F24 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		0F4A798F188CF16500237F24 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 				0FE5EFDD18B7B325003075DD /* AuthenticationViewController.m */,
 				0FE5EFDF18B7E582003075DD /* ChatsViewController.h */,
 				0FE5EFE018B7E582003075DD /* ChatsViewController.m */,
+				0F49389318BD117B00EEEB59 /* ChatViewController.h */,
+				0F49389418BD117B00EEEB59 /* ChatViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 				0F04A9FE18B649B8007D9F0E /* FindFriendsView.m in Sources */,
 				0F476D0C187B837F00338F61 /* main.m in Sources */,
 				0F4A798E188B32CB00237F24 /* LoginView.m in Sources */,
+				0F49389518BD117B00EEEB59 /* ChatViewController.m in Sources */,
 				0F20E07F18B3E87600BD439D /* RegisterView.m in Sources */,
 				0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */,
 				0F17883918BE488D00336653 /* NSData+RSADecrypt.m in Sources */,

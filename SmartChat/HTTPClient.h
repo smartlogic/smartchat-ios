@@ -7,6 +7,9 @@
 
 @interface HTTPClient : NSObject
 
+@property (nonatomic, strong) Credentials *credentials;
+
+- (NSString *)passphrase;
 + (id)clientWithClient:(HTTPClient *)client credentials:(Credentials *)credentials;
 - (id)initWithBaseURL:(NSURL *)baseURL credentials:(Credentials *)credentials;
 - (id)initWithClient:(HTTPClient *)client credentials:(Credentials *)credentials;
@@ -48,7 +51,7 @@
       success:(void (^)(YBHALResource *resource, NSArray *chats))success
       failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 - (void)file:(YBHALLink *)link
-     success:(void (^)(NSData *fileData))success
+     success:(void (^)(NSURL *filePath, NSString *key, NSString *iv))success
      failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
 
 - (NSString *)signedPath:(NSString *)path;

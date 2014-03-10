@@ -11,7 +11,6 @@
 #import "NSString+KeySigning.h"
 
 @interface HTTPClient ()
-@property (nonatomic, strong) Credentials *credentials;
 @property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
 @property (nonatomic, strong) NSURL *baseURL;
 @end
@@ -265,9 +264,9 @@
     [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
 
     [self.manager POST:absoluteURL
-           parameters:nil
+            parameters:nil
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  DDLogVerbose(@"search - responseObject:\n%@", responseObject);
+                   DDLogVerbose(@"search - responseObject:\n%@", responseObject);
                    success([responseObject HALResourceWithBaseURL:self.baseURL]);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    DDLogError(@"search - error: %@", error);
@@ -303,7 +302,7 @@
 }
 
 - (void)file:(YBHALLink *)link
-     success:(void (^)(NSData *fileData))success
+     success:(void (^)(NSURL *filePath, NSString *key, NSString *iv))success
      failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
 {
     NSString *absoluteURL = [link.URL absoluteString];
@@ -316,10 +315,15 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
 
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        NSURL *documentsDirectoryPath = [NSURL fileURLWithPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]];
-        return [documentsDirectoryPath URLByAppendingPathComponent:[response suggestedFilename]];
+        [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat: @"%.0f.%@", [NSDate timeIntervalSinceReferenceDate] * 1000.0, @"txt"]];
+        NSString *filename = [NSString stringWithFormat:@"%.0f.%@", [NSDate timeIntervalSinceReferenceDate], [response suggestedFilename]];
+        NSString *tempfile = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
+        return [NSURL fileURLWithPath:tempfile];
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-        NSLog(@"File downloaded to: %@", filePath);
+        NSDictionary *headers = [(NSHTTPURLResponse *)response allHeaderFields];
+        NSString *key = headers[@"Encrypted-Aes-Key"];
+        NSString *iv = headers[@"Encrypted-Aes-Iv"];
+        success(filePath, key, iv);
     }];
 
     NSString *username = [self.credentials.username copy];
