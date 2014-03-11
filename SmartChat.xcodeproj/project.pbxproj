@@ -47,7 +47,6 @@
 		0FA605F718C4F58A0024EE04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D03187B837F00338F61 /* UIKit.framework */; };
 		0FA605FD18C4F58A0024EE04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FA605FB18C4F58A0024EE04 /* InfoPlist.strings */; };
 		0FA6060618C4F8BF0024EE04 /* AuthenticationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA722918C290C000269095 /* AuthenticationSpec.m */; };
-		0FB39C2018C7951D00CECBE4 /* setup-server.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0FB39C1F18C7951D00CECBE4 /* setup-server.sh */; };
 		0FBFE1E118C4F9E800348A7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D01187B837F00338F61 /* CoreGraphics.framework */; };
 		0FC4319118909247002833A6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4319018909247002833A6 /* Credentials.m */; };
 		0FD7005418A4239100A0A821 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7005318A4239100A0A821 /* Security.framework */; };
@@ -141,7 +140,6 @@
 		0FA605FA18C4F58A0024EE04 /* SmartChatAcceptance-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartChatAcceptance-Info.plist"; sourceTree = "<group>"; };
 		0FA605FC18C4F58A0024EE04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0FA6060018C4F58A0024EE04 /* SmartChatAcceptance-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartChatAcceptance-Prefix.pch"; sourceTree = "<group>"; };
-		0FB39C1F18C7951D00CECBE4 /* setup-server.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "setup-server.sh"; sourceTree = "<group>"; };
 		0FC4318F18909247002833A6 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		0FC4319018909247002833A6 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
 		0FD7005318A4239100A0A821 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -385,7 +383,6 @@
 		0FA605F918C4F58A0024EE04 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0FB39C1F18C7951D00CECBE4 /* setup-server.sh */,
 				0FA605FA18C4F58A0024EE04 /* SmartChatAcceptance-Info.plist */,
 				0FA605FB18C4F58A0024EE04 /* InfoPlist.strings */,
 				0FA6060018C4F58A0024EE04 /* SmartChatAcceptance-Prefix.pch */,
@@ -551,7 +548,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FA605FD18C4F58A0024EE04 /* InfoPlist.strings in Resources */,
-				0FB39C2018C7951D00CECBE4 /* setup-server.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
