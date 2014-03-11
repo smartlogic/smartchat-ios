@@ -4,7 +4,6 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 #import "CameraViewController.h"
-#import "Credentials.h"
 #import "HTTPClient.h"
 #import "LoginView.h"
 #import "RegisterView.h"
@@ -102,7 +101,7 @@
                           [defaults removeObjectForKey:kDefaultsPrivateKey];
                           [defaults synchronize];
 
-                          NSLog(@"error: %@", error);
+                          DDLogVerbose(@"error: %@", error);
                       }];
 }
 
