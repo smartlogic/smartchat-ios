@@ -88,6 +88,8 @@
 {
     ChatCell *cell = (ChatCell *)[tableView cellForRowAtIndexPath:indexPath];
 
+    [cell startActivityIndicator];
+
     for (YBHALLink *link in cell.links) {
         [self.client file:link
                   success:^(NSURL *filePath, NSString *key, NSString *iv) {
@@ -114,6 +116,9 @@
 
                       ChatViewController *chatViewController = [[ChatViewController alloc] initWithImage:image];
                       [self.navigationController pushViewController:chatViewController animated:YES];
+
+                      [cell stopActivityIndicator];
+                      [cell disable];
 
                   } failure:^(AFHTTPRequestOperation *task, NSError *error) {
                       NSLog(@"error: %@", error);

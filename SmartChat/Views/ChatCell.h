@@ -10,6 +10,8 @@ extern NSString *const ChatCellIdentifier;
 @property (nonatomic, strong) NSArray *links;
 
 - (void)configure:(YBHALResource *)resource client:(HTTPClient *)client;
-- (IBAction)detailsButtonPressed:(id)sender;
+- (void)startActivityIndicator;
+- (void)stopActivityIndicator;
+- (void)disable;
 
 @end

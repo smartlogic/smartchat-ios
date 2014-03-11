@@ -32,18 +32,21 @@ NSString *const ChatCellIdentifier = @"ChatCellIdentifier";
     self.client = client;
 }
 
-//- (IBAction)detailsButtonPressed:(id)sender
-//{
-//    for (YBHALLink *link in self.links) {
-//        [self.client file:link
-//                  success:^(NSURL *filePath) {
-//
-//                  } failure:^(AFHTTPRequestOperation *task, NSError *error) {
-//                      NSLog(@"error");
-//                  }];
-//    }
-//}
-//
-//
+- (void)startActivityIndicator
+{
+    UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [activityIndicatorView startAnimating];
+    self.accessoryView = activityIndicatorView;
+}
+
+- (void)stopActivityIndicator
+{
+    [(UIActivityIndicatorView *)self.accessoryView stopAnimating];
+}
+
+- (void)disable
+{
+    self.textLabel.textColor = [UIColor grayColor];
+}
 
 @end
