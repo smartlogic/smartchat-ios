@@ -24,6 +24,7 @@
 @property (nonatomic, strong) LoginView *loginView;
 @property (nonatomic, strong) RegisterView *registerView;
 @property (nonatomic, strong) NSArray *recipients;
+@property (nonatomic, strong) id observer;
 @end
 
 @implementation CameraViewController
@@ -52,6 +53,13 @@
 {
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)dealloc
+{
+    if(self.observer){
+        [[NSNotificationCenter defaultCenter] removeObserver:self.observer];
+    }
 }
 
 - (void)viewDidLoad
@@ -118,17 +126,19 @@
 
 - (void)registerDeviceIfNecessary
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if(![defaults boolForKey:kDefaultsDeviceRegistered]){
+    // Register device for APN
+    self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:@"didRegisterForRemoteNotificationsWithDeviceToken" object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self.client registerDevice:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/devices"]
+                             device:note.userInfo[@"deviceToken"]
                             success:^(YBHALResource *resource) {
-                                [defaults setBool:YES forKey:kDefaultsDeviceRegistered];
-                                [defaults synchronize];
+                                // No-op
                             }
                             failure:^(AFHTTPRequestOperation *task, NSError *error) {
                                 NSLog(@"error: %@", error);
                             }];
-    }
+    }];
+
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
 }
 
 - (void)didReceiveMemoryWarning

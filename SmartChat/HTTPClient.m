@@ -163,28 +163,6 @@
                }];
 }
 
-- (void)registerDevice:(YBHALLink *)link
-               success:(void (^)(YBHALResource *resource))success
-               failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
-{
-    NSString *signedPath = [self signedPath:link.URL.absoluteString];
-    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
-
-    NSUUID *uuid = [[UIDevice currentDevice] identifierForVendor];
-    NSDictionary *parameters = @{@"device_id": uuid.UUIDString,
-                                 @"device_type": @"iOS"};
-
-    [self.manager POST:link.URL.absoluteString
-            parameters:parameters
-               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                   DDLogVerbose(@"registerDevice - responseObject:\n%@", responseObject);
-                   success([responseObject HALResourceWithBaseURL:self.baseURL]);
-               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                   DDLogError(@"registerDevice - error: %@", error);
-                   failure(operation, error);
-               }];
-}
-
 - (void)friends:(YBHALLink *)link
         success:(void (^)(YBHALResource *resource, NSArray *friends))success
         failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
@@ -337,6 +315,31 @@
     }];
 
     [downloadTask resume];
+}
+
+- (void)registerDevice:(YBHALLink *)link
+                device:(NSString *)device
+               success:(void (^)(YBHALResource *resource))success
+               failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure
+{
+    NSString *absoluteURL = [link.URL absoluteString];
+    NSString *signedPath = [self signedPath:absoluteURL];
+
+    [self.manager.requestSerializer setAuthorizationHeaderFieldWithUsername:self.credentials.username password:signedPath];
+
+    NSDictionary *parameters = @{@"device": @{@"device_id": device,
+                                              @"device_type": @"iOS"}
+                                 };
+
+    [self.manager POST:absoluteURL
+           parameters:parameters
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  DDLogVerbose(@"registerDevice - responseObject:\n%@", responseObject);
+                  success([responseObject HALResourceWithBaseURL:self.baseURL]);
+              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  DDLogError(@"search - error: %@", error);
+                  failure(operation, error);
+              }];
 }
 
 - (NSString *)passphrase

@@ -26,9 +26,7 @@
                email:(NSString *)email
              success:(void (^)(YBHALResource *resource, NSString *privateKey))success
              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)registerDevice:(YBHALLink *)link
-               success:(void (^)(YBHALResource *resource))success
-               failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+
 - (void)upload:(YBHALLink *)link
     recipients:(NSArray *)recipients
           file:(UIImage *)file
@@ -36,20 +34,30 @@
            ttl:(NSUInteger)ttl
        success:(void (^)(YBHALResource *resource))success
        failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+
 - (void)friends:(YBHALLink *)link
         success:(void (^)(YBHALResource *resource, NSArray *friends))success
         failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+
 - (void)search:(YBHALLink *)link
         emails:(NSArray *)emails
         phones:(NSArray *)phones
        success:(void (^)(YBHALResource *resource, NSArray *matches))success
        failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+
 - (void)addFriend:(YBHALLink *)link
           success:(void (^)(YBHALResource *resource))success
           failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+
 - (void)media:(YBHALLink *)link
       success:(void (^)(YBHALResource *resource, NSArray *chats))success
       failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+
+- (void)registerDevice:(YBHALLink *)link
+                device:(NSString *)device
+               success:(void (^)(YBHALResource *resource))success
+               failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;
+
 - (void)file:(YBHALLink *)link
      success:(void (^)(NSURL *filePath, NSString *key, NSString *iv))success
      failure:(void (^)(AFHTTPRequestOperation *task, NSError *error))failure;

@@ -37,9 +37,6 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 
-
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
-
     return YES;
 }
 
@@ -85,14 +82,20 @@
     // appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NSLog(@"Got notification");
+}
+
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    DDLogVerbose(@"application:didRegisterForRemoteNotificationWIthDeviceToken: %@", deviceToken);
+    NSLog(@"application:didRegisterForRemoteNotificationWIthDeviceToken: %@", [deviceToken description]);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didRegisterForRemoteNotificationsWithDeviceToken" object:self userInfo:@{@"deviceToken": [deviceToken description]}];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
-    DDLogVerbose(@"application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
+    NSLog(@"application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
 }
 
 @end
