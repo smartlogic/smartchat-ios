@@ -25,29 +25,30 @@
         self.tableView = [[UITableView alloc] init];
         self.bottomToolbar = [[UIToolbar alloc] init];
         self.doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:nil action:nil];
+
+        self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+        self.bottomToolbar.translatesAutoresizingMaskIntoConstraints = NO;
+
+        UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        self.bottomToolbar.items = @[flexibleSpace, self.self.doneButton];
+
+        self.backgroundColor = [UIColor whiteColor];
+
+        [self addSubview:self.tableView];
+        [self addSubview:self.bottomToolbar];
     }
     return self;
 }
 
 - (void)layoutSubviews
 {
-    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.bottomToolbar.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    self.bottomToolbar.items = @[flexibleSpace, self.self.doneButton];
-    
+
     NSDictionary *views = @{
                             @"superview": self,
                             @"tableView": self.tableView,
                             @"bottomToolbar": self.bottomToolbar
                             };
-    
-    self.backgroundColor = [UIColor whiteColor];
-    
-    [self addSubview:self.tableView];
-    [self addSubview:self.bottomToolbar];
-    
+
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[tableView][bottomToolbar(44)]|"
                                                                  options:NSLayoutFormatAlignAllCenterX
                                                                  metrics:nil

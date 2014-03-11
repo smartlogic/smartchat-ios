@@ -6,26 +6,23 @@
 {
     self = [super initWithFrame:frame];
     if(self){
+        self.backgroundColor = [UIColor whiteColor];
         self.tableView = [[UITableView alloc] initWithFrame:frame];
+        self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:self.tableView];
     }
     return self;
 }
 
 - (void)layoutSubviews
 {
-
-    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
-
     NSDictionary *views = @{
                             @"superview": self,
                             @"tableView": self.tableView
                             };
 
-    self.backgroundColor = [UIColor whiteColor];
 
-    [self addSubview:self.tableView];
-
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[tableView]|"
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView]|"
                                                                  options:NSLayoutFormatAlignAllCenterX
                                                                  metrics:nil
                                                                    views:views]];

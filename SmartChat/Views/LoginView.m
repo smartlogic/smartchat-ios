@@ -11,6 +11,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+
+        self.backgroundColor = [UIColor whiteColor];
+
         self.usernameField = [[UITextField alloc] init];
         self.usernameField.translatesAutoresizingMaskIntoConstraints = NO;
         self.usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -39,6 +42,13 @@
         self.registerButton.backgroundColor = [UIColor colorWithRed:150/255.0f green:150/255.0f blue:150/255.0f alpha:1.0f];
         [self.registerButton setTitle:NSLocalizedString(@"authentication: register", nil) forState:UIControlStateNormal];
         [self.registerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+
+        [self addSubview:self.usernameField];
+        [self addSubview:self.passwordField];
+        [self addSubview:self.submitButton];
+        [self addSubview:self.registerButton];
+
     }
     return self;
 }
@@ -47,8 +57,6 @@
 
 - (void)layoutSubviews
 {
-    self.backgroundColor = [UIColor whiteColor];
-
     NSDictionary *views = @{
                             @"superview": self,
                             @"usernameField": self.usernameField,
@@ -56,12 +64,6 @@
                             @"submitButton": self.submitButton,
                             @"registerButton": self.registerButton
                             };
-
-    [self addSubview:self.usernameField];
-    [self addSubview:self.passwordField];
-    [self addSubview:self.submitButton];
-    [self addSubview:self.registerButton];
-
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-88-[usernameField(31)]-[passwordField(31)]-[submitButton(44)]-[registerButton(44)]"
                                                                  options:NSLayoutFormatAlignAllCenterX
                                                                  metrics:nil

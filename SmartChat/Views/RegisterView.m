@@ -11,11 +11,13 @@
 
 @implementation RegisterView
 
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+
+        self.backgroundColor = [UIColor whiteColor];
+
         self.emailField = [[UITextField alloc] init];
         self.emailField.translatesAutoresizingMaskIntoConstraints = NO;
         self.emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -61,6 +63,14 @@
         self.signInButton.backgroundColor = [UIColor colorWithRed:150/255.0f green:150/255.0f blue:150/255.0f alpha:1.0f];
         [self.signInButton setTitle:NSLocalizedString(@"authentication: login", nil) forState:UIControlStateNormal];
         [self.signInButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+        [self addSubview:self.emailField];
+        [self addSubview:self.usernameField];
+        [self addSubview:self.passwordField];
+        [self addSubview:self.passwordConfirmationField];
+        [self addSubview:self.submitButton];
+        [self addSubview:self.signInButton];
+
     }
     return self;
 }
@@ -69,8 +79,6 @@
 
 - (void)layoutSubviews
 {
-    self.backgroundColor = [UIColor whiteColor];
-
     NSDictionary *views = @{
                             @"superview": self,
                             @"emailField": self.emailField,
@@ -80,13 +88,6 @@
                             @"submitButton": self.submitButton,
                             @"signInButton": self.signInButton
                             };
-
-    [self addSubview:self.emailField];
-    [self addSubview:self.usernameField];
-    [self addSubview:self.passwordField];
-    [self addSubview:self.passwordConfirmationField];
-    [self addSubview:self.submitButton];
-    [self addSubview:self.signInButton];
 
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-88-[emailField(31)]-[usernameField(31)]-[passwordField(31)]-[passwordConfirmationField(31)]-[submitButton(44)]-[signInButton(44)]"
                                                                  options:NSLayoutFormatAlignAllCenterX
