@@ -341,6 +341,7 @@
 
 - (NSString *)passphrase
 {
+    // TODO: We should only need to do this once, after that we can store the private key locally without requiring a passphrase
     NSString *passphrase = [self.credentials.password copy];
     NSString *input;
 

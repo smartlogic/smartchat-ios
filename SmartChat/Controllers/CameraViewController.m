@@ -24,7 +24,6 @@
 @property (nonatomic, strong) LoginView *loginView;
 @property (nonatomic, strong) RegisterView *registerView;
 @property (nonatomic, strong) NSArray *recipients;
-
 @end
 
 @implementation CameraViewController
@@ -55,7 +54,6 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -66,7 +64,7 @@
     __weak CameraViewController *weakSelf = self;
     [RACObserve(self.cameraController, image) subscribeNext:^(UIImage *image){
         if(image){
-            FriendsViewController *friendsViewController = [[FriendsViewController alloc] initWithHTTPClient:weakSelf.client resource:weakSelf.resource];
+            FriendsViewController *friendsViewController = [[FriendsViewController alloc] initWithHTTPClient:weakSelf.client resource:weakSelf.resource image:image];
             friendsViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
             [weakSelf.navigationController pushViewController:friendsViewController animated:YES];
         }

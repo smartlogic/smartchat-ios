@@ -22,6 +22,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults removeObjectForKey:kDefaultsUsername];
+//    [defaults removeObjectForKey:kDefaultsPassword];
+//    [defaults removeObjectForKey:kDefaultsPrivateKey];
+//    [defaults synchronize];
+
     Credentials *credentials = [[Credentials alloc] initWithUserDefaults:defaults];
     HTTPClient *client = [[HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://smartchat.smartlogic.io/"] credentials:credentials];
 
@@ -31,6 +36,9 @@
 
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+
+
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
 
     return YES;
 }
@@ -75,6 +83,16 @@
 {
     // Called when the application is about to terminate. Save data if
     // appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    DDLogVerbose(@"application:didRegisterForRemoteNotificationWIthDeviceToken: %@", deviceToken);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    DDLogVerbose(@"application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
 }
 
 @end

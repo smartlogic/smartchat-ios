@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -35,6 +35,16 @@
                BlueprintIdentifier = "0F476D16187B837F00338F61"
                BuildableName = "SmartChatTests.xctest"
                BlueprintName = "SmartChatTests"
+               ReferencedContainer = "container:SmartChat.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0FA605F318C4F58A0024EE04"
+               BuildableName = "SmartChatAcceptance.xctest"
+               BlueprintName = "SmartChatAcceptance"
                ReferencedContainer = "container:SmartChat.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -8,5 +8,6 @@
 @property (nonatomic, strong) NSMutableArray *recipients;
 
 - (id)initWithHTTPClient:(HTTPClient *)client resource:(YBHALResource *)resource;
+- (id)initWithHTTPClient:(HTTPClient *)client resource:(YBHALResource *)resource image:(UIImage *)image;
 
 @end

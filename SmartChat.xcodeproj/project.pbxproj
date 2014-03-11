@@ -42,6 +42,13 @@
 		0F81B24A18A553E200CD4FEC /* NSStringKeySigningSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */; };
 		0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4A818A1E4C60024A427 /* CameraViewController.m */; };
 		0FB39C2418C7B61500CECBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FB39C2218C7B61500CECBE4 /* Localizable.strings */; };
+		0FA605F518C4F58A0024EE04 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D18187B837F00338F61 /* XCTest.framework */; };
+		0FA605F618C4F58A0024EE04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476CFF187B837F00338F61 /* Foundation.framework */; };
+		0FA605F718C4F58A0024EE04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D03187B837F00338F61 /* UIKit.framework */; };
+		0FA605FD18C4F58A0024EE04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FA605FB18C4F58A0024EE04 /* InfoPlist.strings */; };
+		0FA6060618C4F8BF0024EE04 /* AuthenticationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA722918C290C000269095 /* AuthenticationSpec.m */; };
+		0FB39C2018C7951D00CECBE4 /* setup-server.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0FB39C1F18C7951D00CECBE4 /* setup-server.sh */; };
+		0FBFE1E118C4F9E800348A7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D01187B837F00338F61 /* CoreGraphics.framework */; };
 		0FC4319118909247002833A6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4319018909247002833A6 /* Credentials.m */; };
 		0FD7005418A4239100A0A821 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7005318A4239100A0A821 /* Security.framework */; };
 		0FD7D1A718B26EAC00EC9142 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD7D1A618B26EAC00EC9142 /* FriendsViewController.m */; };
@@ -50,6 +57,8 @@
 		0FE5EFDE18B7B325003075DD /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE5EFDD18B7B325003075DD /* AuthenticationViewController.m */; };
 		0FE5EFE118B7E582003075DD /* ChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE5EFE018B7E582003075DD /* ChatsViewController.m */; };
 		0FE5EFE418B7F419003075DD /* ChatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE5EFE318B7F419003075DD /* ChatsView.m */; };
+		1403A73EEE134D8D8CF34DD8 /* libPods-SmartChatAcceptance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3363EF3CFC11475A8FFF9E86 /* libPods-SmartChatAcceptance.a */; };
+		0FF1B17318C90F43009D81B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FF1B17118C90F43009D81B5 /* Localizable.strings */; };
 		3683EB4CE4D349CCD729B7D1 /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3683ECE1F7F4DED0EFCAA6F0 /* CameraView.m */; };
 		C015A52866AD45D4AF7E28BB /* libPods-SmartChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 856612DFFD5D4FAEA7682AC4 /* libPods-SmartChatTests.a */; };
 		D9ED6A6E80C14B76814440BC /* libPods-SmartChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5EEE63FF2D488C8520D73C /* libPods-SmartChat.a */; };
@@ -57,6 +66,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		0F476D1C187B837F00338F61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F476CF4187B837F00338F61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F476CFB187B837F00338F61;
+			remoteInfo = SmartChat;
+		};
+		0FA6060118C4F58A0024EE04 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0F476CF4187B837F00338F61 /* Project object */;
 			proxyType = 1;
@@ -121,6 +137,11 @@
 		0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringKeySigningSpec.m; sourceTree = "<group>"; };
 		0F97D4A718A1E4C60024A427 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		0F97D4A818A1E4C60024A427 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		0FA605F418C4F58A0024EE04 /* SmartChatAcceptance.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartChatAcceptance.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FA605FA18C4F58A0024EE04 /* SmartChatAcceptance-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartChatAcceptance-Info.plist"; sourceTree = "<group>"; };
+		0FA605FC18C4F58A0024EE04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0FA6060018C4F58A0024EE04 /* SmartChatAcceptance-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartChatAcceptance-Prefix.pch"; sourceTree = "<group>"; };
+		0FB39C1F18C7951D00CECBE4 /* setup-server.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "setup-server.sh"; sourceTree = "<group>"; };
 		0FC4318F18909247002833A6 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		0FC4319018909247002833A6 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
 		0FD7005318A4239100A0A821 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -134,6 +155,9 @@
 		0FE5EFE018B7E582003075DD /* ChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatsViewController.m; sourceTree = "<group>"; };
 		0FE5EFE218B7F419003075DD /* ChatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatsView.h; sourceTree = "<group>"; };
 		0FE5EFE318B7F419003075DD /* ChatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatsView.m; sourceTree = "<group>"; };
+		0FEA722918C290C000269095 /* AuthenticationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationSpec.m; sourceTree = "<group>"; };
+		2F1C53291D1E4E978FF5E62B /* Pods-SmartChatAcceptance.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartChatAcceptance.xcconfig"; path = "Pods/Pods-SmartChatAcceptance.xcconfig"; sourceTree = "<group>"; };
+		3363EF3CFC11475A8FFF9E86 /* libPods-SmartChatAcceptance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartChatAcceptance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3683E42EB2F042F2934C5E8B /* CameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
 		3683ECE1F7F4DED0EFCAA6F0 /* CameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraView.m; sourceTree = "<group>"; };
 		3683ED380E8F341229A0CB9A /* NSDataRSADecryptSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataRSADecryptSpec.m; sourceTree = "<group>"; };
@@ -168,6 +192,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FA605F118C4F58A0024EE04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FBFE1E118C4F9E800348A7D /* CoreGraphics.framework in Frameworks */,
+				0FA605F518C4F58A0024EE04 /* XCTest.framework in Frameworks */,
+				0FA605F718C4F58A0024EE04 /* UIKit.framework in Frameworks */,
+				0FA605F618C4F58A0024EE04 /* Foundation.framework in Frameworks */,
+				1403A73EEE134D8D8CF34DD8 /* libPods-SmartChatAcceptance.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -176,10 +212,12 @@
 			children = (
 				0F476D05187B837F00338F61 /* SmartChat */,
 				0F476D1E187B837F00338F61 /* SmartChatTests */,
+				0FA605F818C4F58A0024EE04 /* SmartChatAcceptance */,
 				0F476CFE187B837F00338F61 /* Frameworks */,
 				0F476CFD187B837F00338F61 /* Products */,
 				824430812FC84F6AAF455F64 /* Pods-SmartChat.xcconfig */,
 				F278680EF8624F49B964312E /* Pods-SmartChatTests.xcconfig */,
+				2F1C53291D1E4E978FF5E62B /* Pods-SmartChatAcceptance.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +226,7 @@
 			children = (
 				0F476CFC187B837F00338F61 /* SmartChat.app */,
 				0F476D17187B837F00338F61 /* SmartChatTests.xctest */,
+				0FA605F418C4F58A0024EE04 /* SmartChatAcceptance.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +242,7 @@
 				0F476D18187B837F00338F61 /* XCTest.framework */,
 				BA5EEE63FF2D488C8520D73C /* libPods-SmartChat.a */,
 				856612DFFD5D4FAEA7682AC4 /* libPods-SmartChatTests.a */,
+				3363EF3CFC11475A8FFF9E86 /* libPods-SmartChatAcceptance.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,7 +267,7 @@
 		0F476D06187B837F00338F61 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0FB39C2218C7B61500CECBE4 /* Localizable.strings */,
+				0FF1B17118C90F43009D81B5 /* Localizable.strings */,
 				0F476D07187B837F00338F61 /* SmartChat-Info.plist */,
 				0F476D08187B837F00338F61 /* InfoPlist.strings */,
 				0F476D0B187B837F00338F61 /* main.m */,
@@ -332,6 +372,34 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		0FA605F818C4F58A0024EE04 /* SmartChatAcceptance */ = {
+			isa = PBXGroup;
+			children = (
+				0FB39C1E18C782E400CECBE4 /* Categories */,
+				0FEA722918C290C000269095 /* AuthenticationSpec.m */,
+				0FA605F918C4F58A0024EE04 /* Supporting Files */,
+			);
+			path = SmartChatAcceptance;
+			sourceTree = "<group>";
+		};
+		0FA605F918C4F58A0024EE04 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0FB39C1F18C7951D00CECBE4 /* setup-server.sh */,
+				0FA605FA18C4F58A0024EE04 /* SmartChatAcceptance-Info.plist */,
+				0FA605FB18C4F58A0024EE04 /* InfoPlist.strings */,
+				0FA6060018C4F58A0024EE04 /* SmartChatAcceptance-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0FB39C1E18C782E400CECBE4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		0FE30BB018A8693E0073BCCF /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,19 +467,42 @@
 			productReference = 0F476D17187B837F00338F61 /* SmartChatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0FA605F318C4F58A0024EE04 /* SmartChatAcceptance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FA6060318C4F58A0024EE04 /* Build configuration list for PBXNativeTarget "SmartChatAcceptance" */;
+			buildPhases = (
+				4C416BA477D046DE8C933713 /* Check Pods Manifest.lock */,
+				0FA605F018C4F58A0024EE04 /* Sources */,
+				0FA605F118C4F58A0024EE04 /* Frameworks */,
+				0FA605F218C4F58A0024EE04 /* Resources */,
+				B7B5B00637F64B859B51883D /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0FA6060218C4F58A0024EE04 /* PBXTargetDependency */,
+			);
+			name = SmartChatAcceptance;
+			productName = SmartChatAcceptance;
+			productReference = 0FA605F418C4F58A0024EE04 /* SmartChatAcceptance.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0F476CF4187B837F00338F61 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = SmartLogic;
 				TargetAttributes = {
 					0F476CFB187B837F00338F61 = {
 						DevelopmentTeam = A5KUZ6FFMH;
 					};
 					0F476D16187B837F00338F61 = {
+						TestTargetID = 0F476CFB187B837F00338F61;
+					};
+					0FA605F318C4F58A0024EE04 = {
 						TestTargetID = 0F476CFB187B837F00338F61;
 					};
 				};
@@ -430,6 +521,7 @@
 			targets = (
 				0F476CFB187B837F00338F61 /* SmartChat */,
 				0F476D16187B837F00338F61 /* SmartChatTests */,
+				0FA605F318C4F58A0024EE04 /* SmartChatAcceptance */,
 			);
 		};
 /* End PBXProject section */
@@ -440,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F476D0A187B837F00338F61 /* InfoPlist.strings in Resources */,
+				0FF1B17318C90F43009D81B5 /* Localizable.strings in Resources */,
 				0F476D12187B837F00338F61 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +543,15 @@
 			files = (
 				0FE30BAA18A746E90073BCCF /* private_key.pem in Resources */,
 				0F476D23187B837F00338F61 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FA605F218C4F58A0024EE04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FA605FD18C4F58A0024EE04 /* InfoPlist.strings in Resources */,
+				0FB39C2018C7951D00CECBE4 /* setup-server.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +588,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		4C416BA477D046DE8C933713 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		95D8450EB3324779AE0FF8F2 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -499,6 +616,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B7B5B00637F64B859B51883D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-SmartChatAcceptance-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DACFD9B9FC624A4E98F5FA7F /* Copy Pods Resources */ = {
@@ -564,6 +696,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FA605F018C4F58A0024EE04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FA6060618C4F8BF0024EE04 /* AuthenticationSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -571,6 +711,11 @@
 			isa = PBXTargetDependency;
 			target = 0F476CFB187B837F00338F61 /* SmartChat */;
 			targetProxy = 0F476D1C187B837F00338F61 /* PBXContainerItemProxy */;
+		};
+		0FA6060218C4F58A0024EE04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F476CFB187B837F00338F61 /* SmartChat */;
+			targetProxy = 0FA6060118C4F58A0024EE04 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -591,6 +736,22 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		0FA605FB18C4F58A0024EE04 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FA605FC18C4F58A0024EE04 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0FB39C2218C7B61500CECBE4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FB39C2318C7B61500CECBE4 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -598,7 +759,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -639,7 +799,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -652,7 +811,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SmartLogic Solutions (A5KUZ6FFMH)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SmartLogic Solutions (A5KUZ6FFMH)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -676,6 +835,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartChat/SmartChat-Prefix.pch";
 				INFOPLIST_FILE = "SmartChat/SmartChat-Info.plist";
@@ -691,6 +852,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SmartLogic Solutions (A5KUZ6FFMH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SmartLogic Solutions (A5KUZ6FFMH)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartChat/SmartChat-Prefix.pch";
 				INFOPLIST_FILE = "SmartChat/SmartChat-Info.plist";
@@ -704,7 +867,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F278680EF8624F49B964312E /* Pods-SmartChatTests.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartChat.app/SmartChat";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -728,7 +890,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F278680EF8624F49B964312E /* Pods-SmartChatTests.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartChat.app/SmartChat";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -738,6 +899,50 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartChat/SmartChat-Prefix.pch";
 				INFOPLIST_FILE = "SmartChatTests/SmartChatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		0FA6060418C4F58A0024EE04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F1C53291D1E4E978FF5E62B /* Pods-SmartChatAcceptance.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartChat.app/SmartChat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartChatAcceptance/SmartChatAcceptance-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SmartChatAcceptance/SmartChatAcceptance-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0FA6060518C4F58A0024EE04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F1C53291D1E4E978FF5E62B /* Pods-SmartChatAcceptance.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartChat.app/SmartChat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartChatAcceptance/SmartChatAcceptance-Prefix.pch";
+				INFOPLIST_FILE = "SmartChatAcceptance/SmartChatAcceptance-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -770,6 +975,15 @@
 			buildConfigurations = (
 				0F476D2C187B837F00338F61 /* Debug */,
 				0F476D2D187B837F00338F61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FA6060318C4F58A0024EE04 /* Build configuration list for PBXNativeTarget "SmartChatAcceptance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FA6060418C4F58A0024EE04 /* Debug */,
+				0FA6060518C4F58A0024EE04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

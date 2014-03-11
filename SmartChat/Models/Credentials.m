@@ -2,14 +2,18 @@
 
 @implementation Credentials
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"Credentials %@ | %@ | %@", self.username, self.password, self.privateKey];
+}
 
 - (id)initWithUsername:(NSString *)username password:(NSString *)password privateKey:(NSString *)privateKey
 {
     self = [self init];
     if(self){
-        _username = username;
-        _password = password;
-        _privateKey = privateKey;
+        self.username = username;
+        self.password = password;
+        self.privateKey = privateKey;
     }
     
     return self;

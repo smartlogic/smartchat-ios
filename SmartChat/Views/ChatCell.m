@@ -10,7 +10,6 @@ NSString *const ChatCellIdentifier = @"ChatCellIdentifier";
 
 @interface ChatCell ()
 
-@property (nonatomic, strong) NSArray *links;
 @property (nonatomic, strong) HTTPClient *client;
 @end
 
@@ -33,18 +32,18 @@ NSString *const ChatCellIdentifier = @"ChatCellIdentifier";
     self.client = client;
 }
 
-- (IBAction)detailsButtonPressed:(id)sender
-{
-    for (YBHALLink *link in self.links) {
-        [self.client file:link
-                  success:^(NSData *data) {
-                      NSLog(@"results");
-                  } failure:^(AFHTTPRequestOperation *task, NSError *error) {
-                      NSLog(@"error");
-                  }];
-    }
-}
-
-
+//- (IBAction)detailsButtonPressed:(id)sender
+//{
+//    for (YBHALLink *link in self.links) {
+//        [self.client file:link
+//                  success:^(NSURL *filePath) {
+//
+//                  } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+//                      NSLog(@"error");
+//                  }];
+//    }
+//}
+//
+//
 
 @end
