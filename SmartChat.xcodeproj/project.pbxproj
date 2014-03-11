@@ -36,12 +36,12 @@
 		0F5695E818A6AE790061715A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5695E718A6AE790061715A /* AVFoundation.framework */; };
 		0F6789EF18AE8E9600E53192 /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6789EE18AE8E9600E53192 /* CameraController.m */; };
 		0F799D5118AAB38B0045A940 /* UIAlertView+NSError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F799D5018AAB38B0045A940 /* UIAlertView+NSError.m */; };
+		0F7F2C9418CF8A80009BD96D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F7F2C9218CF8A80009BD96D /* Localizable.strings */; };
 		0F81B24318A4919D00CD4FEC /* NSString+SHA256Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */; };
 		0F81B24518A491FD00CD4FEC /* NSStringSHA256DigestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */; };
 		0F81B24818A551AB00CD4FEC /* NSString+KeySigning.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24718A551AB00CD4FEC /* NSString+KeySigning.m */; };
 		0F81B24A18A553E200CD4FEC /* NSStringKeySigningSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F81B24918A553E200CD4FEC /* NSStringKeySigningSpec.m */; };
 		0F97D4A918A1E4C60024A427 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F97D4A818A1E4C60024A427 /* CameraViewController.m */; };
-		0FB39C2418C7B61500CECBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FB39C2218C7B61500CECBE4 /* Localizable.strings */; };
 		0FA605F518C4F58A0024EE04 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D18187B837F00338F61 /* XCTest.framework */; };
 		0FA605F618C4F58A0024EE04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476CFF187B837F00338F61 /* Foundation.framework */; };
 		0FA605F718C4F58A0024EE04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F476D03187B837F00338F61 /* UIKit.framework */; };
@@ -58,7 +58,6 @@
 		0FE5EFE118B7E582003075DD /* ChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE5EFE018B7E582003075DD /* ChatsViewController.m */; };
 		0FE5EFE418B7F419003075DD /* ChatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE5EFE318B7F419003075DD /* ChatsView.m */; };
 		1403A73EEE134D8D8CF34DD8 /* libPods-SmartChatAcceptance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3363EF3CFC11475A8FFF9E86 /* libPods-SmartChatAcceptance.a */; };
-		0FF1B17318C90F43009D81B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FF1B17118C90F43009D81B5 /* Localizable.strings */; };
 		3683EB4CE4D349CCD729B7D1 /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3683ECE1F7F4DED0EFCAA6F0 /* CameraView.m */; };
 		C015A52866AD45D4AF7E28BB /* libPods-SmartChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 856612DFFD5D4FAEA7682AC4 /* libPods-SmartChatTests.a */; };
 		D9ED6A6E80C14B76814440BC /* libPods-SmartChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5EEE63FF2D488C8520D73C /* libPods-SmartChat.a */; };
@@ -129,6 +128,7 @@
 		0F6789EE18AE8E9600E53192 /* CameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
 		0F799D4F18AAB38B0045A940 /* UIAlertView+NSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+NSError.h"; sourceTree = "<group>"; };
 		0F799D5018AAB38B0045A940 /* UIAlertView+NSError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+NSError.m"; sourceTree = "<group>"; };
+		0F7F2C9318CF8A80009BD96D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0F81B24118A4919D00CD4FEC /* NSString+SHA256Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA256Digest.h"; sourceTree = "<group>"; };
 		0F81B24218A4919D00CD4FEC /* NSString+SHA256Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA256Digest.m"; sourceTree = "<group>"; };
 		0F81B24418A491FD00CD4FEC /* NSStringSHA256DigestSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringSHA256DigestSpec.m; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 		0F476D06187B837F00338F61 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0FF1B17118C90F43009D81B5 /* Localizable.strings */,
+				0F7F2C9218CF8A80009BD96D /* Localizable.strings */,
 				0F476D07187B837F00338F61 /* SmartChat-Info.plist */,
 				0F476D08187B837F00338F61 /* InfoPlist.strings */,
 				0F476D0B187B837F00338F61 /* main.m */,
@@ -532,7 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F476D0A187B837F00338F61 /* InfoPlist.strings in Resources */,
-				0FF1B17318C90F43009D81B5 /* Localizable.strings in Resources */,
+				0F7F2C9418CF8A80009BD96D /* Localizable.strings in Resources */,
 				0F476D12187B837F00338F61 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,20 +736,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		0F7F2C9218CF8A80009BD96D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F7F2C9318CF8A80009BD96D /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		0FA605FB18C4F58A0024EE04 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0FA605FC18C4F58A0024EE04 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		0FB39C2218C7B61500CECBE4 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FB39C2318C7B61500CECBE4 /* en */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -909,7 +909,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F1C53291D1E4E978FF5E62B /* Pods-SmartChatAcceptance.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartChat.app/SmartChat";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -933,7 +932,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F1C53291D1E4E978FF5E62B /* Pods-SmartChatAcceptance.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartChat.app/SmartChat";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
