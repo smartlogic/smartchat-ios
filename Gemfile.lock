@@ -37,6 +37,9 @@ GEM
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     fuzzy_match (2.0.4)
     highline (1.6.21)
     i18n (0.6.9)
@@ -62,6 +65,7 @@ GEM
       faraday_middleware (~> 0.9)
       json (~> 1.8)
       net-sftp (~> 2.1.2)
+    thor (0.18.1)
     uuidtools (2.1.4)
     xcodeproj (0.14.1)
       activesupport (~> 3.0)
@@ -73,5 +77,6 @@ PLATFORMS
 
 DEPENDENCIES
   cocoapods
+  foreman
   plist
   shenzhen
