@@ -49,23 +49,34 @@
                             @"bottomToolbar": self.bottomToolbar
                             };
 
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[tableView][bottomToolbar(44)]|"
-                                                                 options:NSLayoutFormatAlignAllCenterX
-                                                                 metrics:nil
-                                                                   views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[tableView]|"
-                                                                 options:NSLayoutFormatAlignAllCenterY
-                                                                 metrics:nil
-                                                                   views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[bottomToolbar]|"
-                                                                 options:NSLayoutFormatAlignAllCenterY
-                                                                 metrics:nil
-                                                                   views:views]];
-    [super layoutSubviews];
-    
-    if(!self.showDoneButton){
-        [self.bottomToolbar removeFromSuperview];
+    if(self.showDoneButton){
+
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView][bottomToolbar(44)]|"
+                                                                     options:NSLayoutFormatAlignAllCenterX
+                                                                     metrics:nil
+                                                                       views:views]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[tableView]|"
+                                                                     options:NSLayoutFormatAlignAllCenterY
+                                                                     metrics:nil
+                                                                       views:views]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[bottomToolbar]|"
+                                                                     options:NSLayoutFormatAlignAllCenterY
+                                                                     metrics:nil
+                                                                       views:views]];
+
+    } else {
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView]|"
+                                                                     options:NSLayoutFormatAlignAllCenterX
+                                                                     metrics:nil
+                                                                       views:views]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[tableView]|"
+                                                                     options:NSLayoutFormatAlignAllCenterY
+                                                                     metrics:nil
+                                                                       views:views]];
     }
+
+    [super layoutSubviews];
+
 }
 
 @end

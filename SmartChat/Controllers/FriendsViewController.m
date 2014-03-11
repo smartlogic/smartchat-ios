@@ -59,15 +59,6 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem = addButton;
 
-//    [RACObserve(self.cameraController, image) subscribeNext:^(UIImage *image){
-//        if(image){
-//            FriendsViewController *friendsViewController = [[FriendsViewController alloc] initWithHTTPClient:weakSelf.client resource:weakSelf.resource image:image];
-//            friendsViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-//            [weakSelf.navigationController pushViewController:friendsViewController animated:YES];
-//        }
-//    }];
-
-
     __weak FriendsViewController *weakSelf = self;
     [self.client friends:[self.resource linkForRelation:@"http://smartchat.smartlogic.io/relations/friends"]
                      success:^(YBHALResource *resource, NSArray *friends) {
@@ -105,7 +96,7 @@
 
 - (void)loadView
 {
-    self.view = [[FriendsView alloc] initWithFrame:[UIScreen mainScreen].bounds doneButton:(self.image)];
+    self.view = [[FriendsView alloc] initWithFrame:[UIScreen mainScreen].bounds doneButton:(self.image ? YES : NO)];
 }
 
 - (IBAction)sendButtonPressed:(id)sender
